@@ -1,0 +1,6 @@
+@SkillTracker_HostAddress = http://localhost:5243
+
+GET {{SkillTracker_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,133 @@
+﻿@page "/register"
+@using Microsoft.AspNetCore.Components.Forms
+@inject NavigationManager Navigation
+
+<div class="min-h-screen flex items-center justify-center bg-background p-4">
+    <div class="w-full max-w-md">
+        <div class="bg-card rounded-2xl shadow-xl border p-8">
+
+            <div class="flex items-center justify-center gap-2 mb-8">
+                <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+                    🧠
+                </div>
+                <h1 class="text-2xl font-bold">SmartNote AI</h1>
+            </div>
+
+            <h2 class="text-xl font-semibold text-center mb-6">
+                Create your account
+            </h2>
+
+            <EditForm OnValidSubmit="HandleSubmit">
+
+                <div class="space-y-4">
+
+                    <div>
+                        <label>Name</label>
+                        <input class="form-control"
+                               placeholder="John Doe"
+                               @bind="Name" />
+                    </div>
+
+                    <div>
+                        <label>Email</label>
+                        <input type="email"
+                               class="form-control"
+                               placeholder="you@example.com"
+                               @bind="Email" />
+                    </div>
+
+                    <div>
+                        <label>Password</label>
+                        <input type="password"
+                               class="form-control"
+                               @bind="Password" />
+
+                        @if (!string.IsNullOrEmpty(Password))
+                        {
+                            <div class="mt-2">
+                                <progress value="@PasswordStrength" max="5"></progress>
+                                <p>@StrengthLabel</p>
+                            </div>
+                        }
+                    </div>
+
+                    <div>
+                        <label>Confirm Password</label>
+                        <input type="password"
+                               class="form-control"
+                               @bind="ConfirmPassword" />
+
+                        @if (!string.IsNullOrEmpty(ConfirmPassword) && Password != ConfirmPassword)
+                        {
+                            <p style="color:red;font-size:12px">
+                                Passwords don't match
+                            </p>
+                        }
+                    </div>
+
+                    <button class="btn btn-primary w-100"
+                            type="submit"
+                            disabled="@(!CanSubmit)">
+                        Create Account
+                    </button>
+
+                </div>
+
+            </EditForm>
+
+            <p class="text-center mt-4">
+                Already have an account?
+                <NavLink href="/login">Sign in</NavLink>
+            </p>
+
+        </div>
+    </div>
+</div>
+
+@code {
+
+    string Name;
+    string Email;
+    string Password;
+    string ConfirmPassword;
+
+    int PasswordStrength
+    {
+        get
+        {
+            int score = 0;
+
+            if (Password?.Length >= 6) score++;
+            if (Password?.Length >= 10) score++;
+            if (System.Text.RegularExpressions.Regex.IsMatch(Password ?? "", "[A-Z]")) score++;
+            if (System.Text.RegularExpressions.Regex.IsMatch(Password ?? "", "[0-9]")) score++;
+            if (System.Text.RegularExpressions.Regex.IsMatch(Password ?? "", "[^A-Za-z0-9]")) score++;
+
+            return score;
+        }
+    }
+
+    string StrengthLabel => PasswordStrength switch
+    {
+        1 => "Weak",
+        2 => "Fair",
+        3 => "Good",
+        4 => "Strong",
+        5 => "Very Strong",
+        _ => ""
+    };
+
+    bool CanSubmit =>
+        !string.IsNullOrEmpty(Name) &&
+        !string.IsNullOrEmpty(Email) &&
+        Password == ConfirmPassword;
+
+    void HandleSubmit()
+    {
+        Console.WriteLine("Register user");
+
+        // call API here
+
+        Navigation.NavigateTo("/login");
+    }
+}

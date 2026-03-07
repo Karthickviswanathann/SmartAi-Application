@@ -1,0 +1,50 @@
+﻿@page "/"
+
+<div class="h-screen flex overflow-hidden bg-background">
+
+    @if (IsMobile)
+    {
+        @if (SidebarOpen)
+        {
+            <div class="fixed inset-0 z-40 flex">
+
+                <Sidebar />
+
+                <div class="flex-1 bg-black/20"
+                     @onclick="CloseSidebar">
+                </div>
+
+            </div>
+        }
+    }
+    else
+    {
+        @if (SidebarOpen)
+        {
+            <Sidebar />
+        }
+    }
+
+    <NotepadMain />
+
+
+</div>
+
+@code {
+
+    bool SidebarOpen = true;
+    bool IsMobile = false;
+
+    protected override void OnInitialized()
+    {
+        // simple default detection
+        // can be improved with JSInterop
+        IsMobile = false;
+    }
+
+    void CloseSidebar()
+    {
+        SidebarOpen = false;
+    }
+
+}

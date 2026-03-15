@@ -30,3 +30,4 @@ D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\refint\SkillTrackerF
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\SkillTrackerFront.pdb
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\SkillTrackerFront.genruntimeconfig.cache
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\ref\SkillTrackerFront.dll
+D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\SkillTrackerFront.sourcelink.json

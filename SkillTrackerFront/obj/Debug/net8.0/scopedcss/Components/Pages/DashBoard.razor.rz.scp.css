@@ -51,7 +51,7 @@
 }
 
     .new-note-btn:hover[b-zzg0y1477c] {
-        background: #2563eb;
+        background: var(--main-color);
     }
 
 .search-box[b-zzg0y1477c] {

@@ -51,7 +51,7 @@
 }
 
     .new-note-btn:hover {
-        background: #2563eb;
+        background: var(--main-color);
     }
 
 .search-box {

@@ -5,7 +5,7 @@ VisualStudioVersion = 18.4.11612.150
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillTrackerFront", "SkillTrackerFront\SkillTrackerFront.csproj", "{E332C80B-577B-4696-9065-2DAE22B7720A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smart Project Capacity & Effort Analyzer", "..\Smart Project Capacity & Effort Analyzer\Smart Project Capacity & Effort Analyzer\Smart Project Capacity & Effort Analyzer.csproj", "{5353A580-2249-F2AE-8CA2-02B26C7635F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smart Project Capacity & Effort Analyzer", "Smart Project Capacity & Effort Analyzer\Smart Project Capacity & Effort Analyzer.csproj", "{7D6FDFF7-27BB-C5EB-A98A-E178940DEEB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{E332C80B-577B-4696-9065-2DAE22B7720A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E332C80B-577B-4696-9065-2DAE22B7720A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E332C80B-577B-4696-9065-2DAE22B7720A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5353A580-2249-F2AE-8CA2-02B26C7635F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5353A580-2249-F2AE-8CA2-02B26C7635F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5353A580-2249-F2AE-8CA2-02B26C7635F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5353A580-2249-F2AE-8CA2-02B26C7635F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D6FDFF7-27BB-C5EB-A98A-E178940DEEB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D6FDFF7-27BB-C5EB-A98A-E178940DEEB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D6FDFF7-27BB-C5EB-A98A-E178940DEEB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D6FDFF7-27BB-C5EB-A98A-E178940DEEB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

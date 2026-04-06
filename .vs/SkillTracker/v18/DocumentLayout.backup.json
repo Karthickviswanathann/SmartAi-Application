@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\Projects\\SkillTracker\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\components\\pages\\dashboard.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\components\\pages\\dashboard.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\components\\pages\\dashboard.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\components\\pages\\dashboard.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\services\\dataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\services\\dataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -17,19 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\components\\pages\\dashboard.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\components\\pages\\dashboard.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5353A580-2249-F2AE-8CA2-02B26C7635F4}|..\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer.csproj|d:\\projects\\smart project capacity \u0026 effort analyzer\\smart project capacity \u0026 effort analyzer\\models\\notesmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5353A580-2249-F2AE-8CA2-02B26C7635F4}|..\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer.csproj|d:\\projects\\smart project capacity \u0026 effort analyzer\\smart project capacity \u0026 effort analyzer\\services\\dataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5353A580-2249-F2AE-8CA2-02B26C7635F4}|..\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer.csproj|d:\\projects\\smart project capacity \u0026 effort analyzer\\smart project capacity \u0026 effort analyzer\\controllers\\maincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\services\\dataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\services\\dataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\components\\dtomodels\\addnotesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,11 +46,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 9,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "app.css",
               "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\wwwroot\\app.css",
               "RelativeDocumentMoniker": "SkillTrackerFront\\wwwroot\\app.css",
@@ -72,13 +95,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "DashBoard.razor.css",
               "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor.css",
               "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Pages\\DashBoard.razor.css",
               "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor.css",
               "RelativeToolTip": "SkillTrackerFront\\Components\\Pages\\DashBoard.razor.css",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAAAJMAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowC8AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2026-04-06T10:29:09.289Z",
               "EditorCaption": ""
@@ -86,19 +109,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "DataFlow.cs",
-              "DocumentMoniker": "D:\\Projects\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Services\\DataFlow.cs",
-              "RelativeDocumentMoniker": "..\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Services\\DataFlow.cs",
-              "ToolTip": "D:\\Projects\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Services\\DataFlow.cs",
-              "RelativeToolTip": "..\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Services\\DataFlow.cs",
-              "ViewState": "AgIAAJoAAAAAAAAAAAAgwMoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T09:52:26.464Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "AddNotesDto.cs",
               "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\DtoModels\\AddNotesDto.cs",
               "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\DtoModels\\AddNotesDto.cs",
@@ -106,38 +116,11 @@
               "RelativeToolTip": "SkillTrackerFront\\Components\\DtoModels\\AddNotesDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T09:08:39.376Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NotesMaster.cs",
-              "DocumentMoniker": "D:\\Projects\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Models\\NotesMaster.cs",
-              "RelativeDocumentMoniker": "..\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Models\\NotesMaster.cs",
-              "ToolTip": "D:\\Projects\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Models\\NotesMaster.cs",
-              "RelativeToolTip": "..\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Models\\NotesMaster.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA4wA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T09:07:31.245Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T09:08:39.376Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "MainController.cs",
-              "DocumentMoniker": "D:\\Projects\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Controllers\\MainController.cs",
-              "RelativeDocumentMoniker": "..\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Controllers\\MainController.cs",
-              "ToolTip": "D:\\Projects\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Controllers\\MainController.cs",
-              "RelativeToolTip": "..\\Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer\\Controllers\\MainController.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAowGcAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T09:01:27.469Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Program.cs",
               "RelativeDocumentMoniker": "SkillTrackerFront\\Program.cs",
@@ -145,12 +128,11 @@
               "RelativeToolTip": "SkillTrackerFront\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T08:59:00.152Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T08:59:00.152Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 7,
               "Title": "CustAuthStateProvider.cs",
               "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Services\\CustAuthStateProvider.cs",
               "RelativeDocumentMoniker": "SkillTrackerFront\\Services\\CustAuthStateProvider.cs",
@@ -158,12 +140,11 @@
               "RelativeToolTip": "SkillTrackerFront\\Services\\CustAuthStateProvider.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwB0AAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T08:57:39.467Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T08:57:39.467Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 8,
               "Title": "IDataFlow.cs",
               "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Services\\Interface\\IDataFlow.cs",
               "RelativeDocumentMoniker": "SkillTrackerFront\\Services\\Interface\\IDataFlow.cs",
@@ -171,25 +152,24 @@
               "RelativeToolTip": "SkillTrackerFront\\Services\\Interface\\IDataFlow.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T08:51:31.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T08:51:31.925Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "DataFlow.cs",
               "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Services\\DataFlow.cs",
               "RelativeDocumentMoniker": "SkillTrackerFront\\Services\\DataFlow.cs",
               "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Services\\DataFlow.cs",
               "RelativeToolTip": "SkillTrackerFront\\Services\\DataFlow.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAawGoAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-06T07:52:32.94Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DashBoard.razor.cs",
               "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor.cs",
               "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Pages\\DashBoard.razor.cs",
@@ -202,13 +182,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DashBoard.razor",
               "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
               "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
               "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
               "RelativeToolTip": "SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAAAJQAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABoAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-06T07:32:06.854Z",
               "EditorCaption": ""

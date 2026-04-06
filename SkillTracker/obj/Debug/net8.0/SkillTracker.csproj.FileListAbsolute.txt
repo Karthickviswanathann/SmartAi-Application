@@ -1,8 +1,0 @@
-D:\Projects\SkillTracker\SkillTracker\obj\Debug\net8.0\SkillTracker.csproj.AssemblyReference.cache
-D:\Projects\SkillTracker\SkillTracker\obj\Debug\net8.0\rpswa.dswa.cache.json
-D:\Projects\SkillTracker\SkillTracker\obj\Debug\net8.0\SkillTracker.GeneratedMSBuildEditorConfig.editorconfig
-D:\Projects\SkillTracker\SkillTracker\obj\Debug\net8.0\SkillTracker.AssemblyInfoInputs.cache
-D:\Projects\SkillTracker\SkillTracker\obj\Debug\net8.0\SkillTracker.AssemblyInfo.cs
-D:\Projects\SkillTracker\SkillTracker\obj\Debug\net8.0\SkillTracker.csproj.CoreCompileInputs.cache
-D:\Projects\SkillTracker\SkillTracker\obj\Debug\net8.0\SkillTracker.MvcApplicationPartsAssemblyInfo.cs
-D:\Projects\SkillTracker\SkillTracker\obj\Debug\net8.0\SkillTracker.MvcApplicationPartsAssemblyInfo.cache

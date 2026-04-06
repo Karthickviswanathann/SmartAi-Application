@@ -1,0 +1,128 @@
+[
+  {
+    "ContainingType": "Smart_Project_Capacity___Effort_Analyzer.Controllers.MainController",
+    "Method": "DeleteNotes",
+    "RelativePath": "api/Main/DeleteNotes",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "noteId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Smart_Project_Capacity___Effort_Analyzer.Controllers.MainController",
+    "Method": "GetBehaviour",
+    "RelativePath": "api/Main/GetBehaviour",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Smart_Project_Capacity___Effort_Analyzer.Controllers.MainController",
+    "Method": "GetNotes",
+    "RelativePath": "api/Main/GetNotes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Smart_Project_Capacity___Effort_Analyzer.Controllers.MainController",
+    "Method": "Login",
+    "RelativePath": "api/Main/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "Smart_Project_Capacity___Effort_Analyzer.Models.ApiDtos.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Smart_Project_Capacity___Effort_Analyzer.Controllers.MainController",
+    "Method": "PostNotes",
+    "RelativePath": "api/Main/PostNotes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "notes",
+        "Type": "Smart_Project_Capacity___Effort_Analyzer.Models.Notes",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Smart_Project_Capacity___Effort_Analyzer.Controllers.MainController",
+    "Method": "Register",
+    "RelativePath": "api/Main/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userMaster",
+        "Type": "Smart_Project_Capacity___Effort_Analyzer.Models.ApiDtos.SignInDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Smart_Project_Capacity___Effort_Analyzer.Controllers.MainController",
+    "Method": "UpdateColors",
+    "RelativePath": "api/Main/UpdateColors",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "themeColor",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ElementColor",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Smart_Project_Capacity___Effort_Analyzer.Controllers.MainController",
+    "Method": "ForgetPassword",
+    "RelativePath": "api/Main/UpdateUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

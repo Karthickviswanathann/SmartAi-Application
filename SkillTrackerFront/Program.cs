@@ -1,10 +1,19 @@
+using Microsoft.AspNetCore.Components.Authorization;
 using SkillTrackerFront.Components;
+using SkillTrackerFront.Services;
+using SkillTrackerFront.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddAuthenticationCore();
+builder.Services.AddAuthorizationCore();
+
+builder.Services.AddScoped<AuthenticationStateProvider,CustAuthStateProvider>();
+builder.Services.AddScoped<IDataFlow ,DataFlow>();
+builder.Services.AddScoped<LoadingService>();
 
 var app = builder.Build();
 
@@ -17,7 +26,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseStaticFiles();
 app.UseAntiforgery();
 

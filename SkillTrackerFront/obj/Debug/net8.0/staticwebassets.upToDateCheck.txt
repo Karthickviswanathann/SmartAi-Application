@@ -1,4 +1,6 @@
-wwwroot\app.css
 wwwroot\bootstrap\bootstrap.min.css
 wwwroot\bootstrap\bootstrap.min.css.map
+wwwroot\Elements.js
 wwwroot\favicon.png
+wwwroot\StatusMsg.js
+wwwroot\app.css

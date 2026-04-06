@@ -1,5 +1,7 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
@@ -24,20 +26,16 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/SkillTracker/SkillTrackerFront/Components/Layout/AuthLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcQXV0aExheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/AiPanel.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBaVBhbmVsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/Authenticatin/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoZW50aWNhdGluXExvZ2luLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/Authenticatin/Register.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoZW50aWNhdGluXFJlZ2lzdGVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/DashBoard.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXNoQm9hcmQucmF6b3I=
+[D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/NotepadMain.razor]
@@ -63,3 +61,19 @@ build_metadata.AdditionalFiles.CssScope = b-fk5s21qxb1
 [D:/Projects/SkillTracker/SkillTrackerFront/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-h73kiqkdtk
+
+[D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/Authentication/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoZW50aWNhdGlvblxMb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-ksg44tekwy
+
+[D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/Authentication/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoZW50aWNhdGlvblxSZWdpc3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-jhs19en54p
+
+[D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/DashBoard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXNoQm9hcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-zzg0y1477c
+
+[D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/LoaderSpin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2FkZXJTcGluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-x2jghrcbnt

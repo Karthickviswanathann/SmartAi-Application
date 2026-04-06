@@ -1,21 +1,47 @@
 ﻿@inherits LayoutComponentBase
+@using Microsoft.AspNetCore.Components.Authorization
 @using SkillTrackerFront.Components.Pages
-<div class="page">
- 
+@using SkillTrackerFront.Components.Pages.Authentication
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+<div class="page" style="width:100%;height:100vh;">
+             <div id="toast" class="toast-popup"></div>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+ <AuthorizeView>
+     <Authorized> 
+         <LoaderSpin/>
+         @Body
+     </Authorized>
+     <NotAuthorized>
+         <LoaderSpin/>
+         <Login/>
+
+     </NotAuthorized>
+
+ </AuthorizeView>
+
+    
 </div>
+
+<style>
+    .toast-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #e63946;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 6px;
+    opacity: 0;
+    transition: 0.4s;
+}
+.toast-popup.show {
+    opacity: 1;
+}
+</style>
 
 <div id="blazor-error-ui">
     An unhandled error has occurred.
+
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>

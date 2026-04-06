@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "D:\\Projects\\SkillTracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Layout\\MainLayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SkillTrackerFront\\Components\\Layout\\MainLayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\components\\pages\\authentication\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\components\\pages\\authentication\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\AiPanel.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SkillTrackerFront\\Components\\Pages\\AiPanel.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\NotepadMain.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SkillTrackerFront\\Components\\Pages\\NotepadMain.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\Authenticatin\\Register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SkillTrackerFront\\Components\\Pages\\Authenticatin\\Register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\Authenticatin\\Login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SkillTrackerFront\\Components\\Pages\\Authenticatin\\Login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SkillTrackerFront\\Components\\Pages\\DashBoard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\SkillTracker\\SkillTrackerFront\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SkillTrackerFront\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\services\\custauthstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\services\\custauthstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,88 +54,68 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AiPanel.razor",
-              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\AiPanel.razor",
-              "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Pages\\AiPanel.razor",
-              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\AiPanel.razor",
-              "RelativeToolTip": "SkillTrackerFront\\Components\\Pages\\AiPanel.razor",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAkwHYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-07T01:29:57.243Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NotepadMain.razor",
-              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\NotepadMain.razor",
-              "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Pages\\NotepadMain.razor",
-              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\NotepadMain.razor",
-              "RelativeToolTip": "SkillTrackerFront\\Components\\Pages\\NotepadMain.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-07T01:09:13.923Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainLayout.razor",
-              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Layout\\MainLayout.razor",
-              "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Layout\\MainLayout.razor",
-              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Layout\\MainLayout.razor",
-              "RelativeToolTip": "SkillTrackerFront\\Components\\Layout\\MainLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
+              "Title": "Login.razor",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\Authentication\\Login.razor",
+              "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Pages\\Authentication\\Login.razor",
+              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\Authentication\\Login.razor",
+              "RelativeToolTip": "SkillTrackerFront\\Components\\Pages\\Authentication\\Login.razor",
+              "ViewState": "AgIAABcAAAAAAAAAAAAmwCEAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-07T00:43:36.645Z",
+              "WhenOpened": "2026-03-24T01:55:32.13Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Register.razor",
-              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\Authenticatin\\Register.razor",
-              "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Pages\\Authenticatin\\Register.razor",
-              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\Authenticatin\\Register.razor",
-              "RelativeToolTip": "SkillTrackerFront\\Components\\Pages\\Authenticatin\\Register.razor",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-07T00:41:26.579Z"
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Program.cs",
+              "RelativeDocumentMoniker": "SkillTrackerFront\\Program.cs",
+              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Program.cs",
+              "RelativeToolTip": "SkillTrackerFront\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T01:54:15.241Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Login.razor",
-              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\Authenticatin\\Login.razor",
-              "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Pages\\Authenticatin\\Login.razor",
-              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\Authenticatin\\Login.razor",
-              "RelativeToolTip": "SkillTrackerFront\\Components\\Pages\\Authenticatin\\Login.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "SkillTrackerFront\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-05T16:34:36.654Z"
+              "WhenOpened": "2026-03-24T01:53:07.662Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "DashBoard.razor",
               "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
               "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
               "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
               "RelativeToolTip": "SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-05T16:33:10.227Z"
+              "WhenOpened": "2026-03-24T01:49:32.654Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "app.css",
-              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\wwwroot\\app.css",
-              "RelativeDocumentMoniker": "SkillTrackerFront\\wwwroot\\app.css",
-              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\wwwroot\\app.css",
-              "RelativeToolTip": "SkillTrackerFront\\wwwroot\\app.css",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAADsAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-03-07T01:37:32.973Z"
+              "DocumentIndex": 4,
+              "Title": "CustAuthStateProvider.cs",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Services\\CustAuthStateProvider.cs",
+              "RelativeDocumentMoniker": "SkillTrackerFront\\Services\\CustAuthStateProvider.cs",
+              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Services\\CustAuthStateProvider.cs",
+              "RelativeToolTip": "SkillTrackerFront\\Services\\CustAuthStateProvider.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAcwHcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T01:44:34.958Z",
+              "EditorCaption": ""
             }
           ]
         }

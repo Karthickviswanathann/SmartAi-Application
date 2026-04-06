@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "SkillTrackerFront\\SkillTrackerFront.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "..\\Smart Project Capacity & Effort Analyzer\\Smart Project Capacity & Effort Analyzer\\Smart Project Capacity & Effort Analyzer.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      }
+    ]
+  }
+]

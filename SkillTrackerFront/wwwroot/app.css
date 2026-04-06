@@ -1,49 +1,27 @@
-.root {
-    --main-color:#ccc;
-}
+:root {
+    --accent-color: #3b82f6; 
+    --main-bg: #ffffff; 
+    --main-text: #000000; 
 
+}
 
 
 .dark-mode {
-    --bg: #1e1e1e;
-    --bg-light: #2a2a2a;
-    --bg-lighter: #3a3a3a;
-    --text: #ffffff;
-    --text-muted: #cfcfcf;
-    --border: #444;
+    --main-bg: #1e1e1e;
+    --main-text: #ffffff;
 }
 
-    .dark-mode, .dark-mode * {
-        background-color: var(--bg) !important;
-        color: var(--text) !important;
-        border-color: var(--border) !important;
+
+    .dark-mode body {
+        background-color: #121212;
+        color: white;
     }
 
-        .dark-mode .sidebar,
-        .dark-mode .top-bar,
-        .dark-mode .note-editor,
-        .dark-mode .ai-toolbar {
-            background-color: var(--bg-light) !important;
-        }
+    .dark-mode .card {
+        background: #1e1e1e;
+    }
 
-        .dark-mode .note-item:hover,
-        .dark-mode .note-item.selected {
-            background-color: var(--bg-lighter) !important;
-        }
-
-        .dark-mode input,
-        .dark-mode textarea,
-        .dark-mode select {
-            background-color: var(--bg-light) !important;
-            color: var(--text) !important;
-            border-color: var(--border) !important;
-        }
-
-        .dark-mode .new-note-btn {
-            background: #3b82f6 !important;
-            color: white !important;
-        }
-
-        .dark-mode .empty-editor {
-            color: var(--text-muted) !important;
-        }
+    .dark-mode button {
+        background: #333;
+        color: white;
+    }

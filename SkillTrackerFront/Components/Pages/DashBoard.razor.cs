@@ -18,9 +18,11 @@ namespace SkillTrackerFront.Components.Pages
         private string SelectedFont = "Inter";
         private string selectedAccent = "#3b82f6";
         private bool isDarkMode;
+        private string accentColor;
         private string Element;
         private string theme;
         private string token;
+
         private System.Timers.Timer? autosaveTimer;
 
         public List<string> AvailableFonts = new()
@@ -60,7 +62,11 @@ namespace SkillTrackerFront.Components.Pages
 
                     theme = json.ThemeColor;
                     Element = json.ElementColor;
-                    
+
+                    if (theme== "IsDarkMode")
+                        await JS.InvokeVoidAsync("addDarkMode");
+
+                    await JS.InvokeVoidAsync("applyAccentColor", Element);
                 }
 
 
@@ -90,6 +96,21 @@ namespace SkillTrackerFront.Components.Pages
 
 
         }
+
+
+        private async Task ChangeAccentColor(ChangeEventArgs e)
+        {
+            accentColor = e.Value.ToString();
+
+            await JS.InvokeVoidAsync("applyAccentColor", accentColor);
+
+            //await ThemeService.SaveAccentColorAsync(UserId, accentColor);
+
+            var res = await Flow.PostBehaviour(accentColor,null,token);
+            StateHasChanged();
+        }
+
+
 
         private void AutoSave()
         {

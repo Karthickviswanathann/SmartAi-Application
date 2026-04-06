@@ -10,3 +10,8 @@ window.addDarkMode = () => {
 window.removeDarkMode = () => {
     document.documentElement.classList.remove("dark-mode");
 };
+
+
+window.applyAccentColor = (color) => {
+    document.documentElement.style.setProperty("--accent-color", color);
+};

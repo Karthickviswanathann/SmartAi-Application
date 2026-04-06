@@ -63,18 +63,9 @@
                     <i class="fa-solid @(isDarkMode ? "fa-sun" : "fa-moon")"></i>
                 </span>
             </div>
-
             <div class="setting-group">
                 <label>Accent Color</label>
-                <div class="color-picker">
-                    <div class="color-dot selected" style="background-color: #3b82f6;"></div>
-                    <div class="color-dot" style="background-color: #10b981;"></div>
-                    <div class="color-dot" style="background-color: #f59e0b;"></div>
-                    <div class="color-dot" style="background-color: #ef4444;"></div>
-                    <div class="color-dot" style="background-color: #8b5cf6;"></div>
-                    <div class="color-dot" style="background-color: #ec4899;"></div>
-                    <div class="color-dot" style="background-color: #06b67f;"></div>
-                </div>
+                <input type="color" value="@accentColor" @oninput="ChangeAccentColor" />
             </div>
 
             <div class="setting-group">

@@ -1,27 +1,18 @@
 :root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --sidebar-bg: #f5f5f5;
+    --card-bg: #ffffff;
     --accent-color: #3b82f6; 
-    --main-bg: #ffffff; 
-    --main-text: #000000; 
-
 }
 
-
+/* DARK THEME */
 .dark-mode {
-    --main-bg: #1e1e1e;
-    --main-text: #ffffff;
+    --bg-color: #0f172a;
+    --text-color: #e2e8f0;
+    --sidebar-bg: #1e293b;
+    --card-bg: #1e293b;
 }
 
 
-    .dark-mode body {
-        background-color: #121212;
-        color: white;
-    }
 
-    .dark-mode .card {
-        background: #1e1e1e;
-    }
-
-    .dark-mode button {
-        background: #333;
-        color: white;
-    }

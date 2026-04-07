@@ -179,12 +179,14 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
             }
 
 
-            existUserDetail.ThemeColor = themeColor == "" ? existUserDetail.ThemeColor : themeColor;
-            existUserDetail.ElementColor = ElementColor == "" ? existUserDetail.ElementColor : ElementColor;
+            // update only if value passed
+            if (!string.IsNullOrWhiteSpace(themeColor))
+                existUserDetail.ThemeColor = themeColor;
 
+            if (!string.IsNullOrWhiteSpace(ElementColor))
+                existUserDetail.ElementColor = ElementColor;
 
-            _dbContext.UserBehaviour.Update(existUserDetail);
-            _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync(); // no need Update()
 
             respo.respCode = "200";
             respo.respDesc = "User  Behaviour Updated Successfully";
@@ -211,13 +213,11 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
                     UserId = Convert.ToInt16(token[0]),
                     Title=notes.Title,
                     NotesText = notes.NotesText,
-                    CreatedDate=DateTime.Now
+                    CreatedDate=DateTime.Now,
+                    UpdatedDate = null
                 };
 
-
-
-                existUserDetail.UpdatedDate = DateTime.Now;
-
+          
                 _dbContext.NotesMasters.Add(existUserDetail);
                 _dbContext.SaveChanges();
 
@@ -227,9 +227,10 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
                 return respo;
             }
 
+            existUserDetail.Title = notes.Title;
+            existUserDetail.NotesText = notes.NotesText;
+            existUserDetail.UpdatedDate = DateTime.Now;
 
-           
-            _dbContext.NotesMasters.Update(existUserDetail);
             _dbContext.SaveChangesAsync();
 
             respo.respCode = "200";

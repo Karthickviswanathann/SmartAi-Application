@@ -105,6 +105,24 @@ namespace SkillTrackerFront.Services
 
             return respModel;
         }
+        public async Task<RespModel> DeleteNotes(int id, string token)
+        {
+            RespModel respModel = new RespModel();
+
+            var client = new HttpClient();
+
+            var appurl = _configuration.GetRequiredSection("ApiUrl").Value;
+            var url = appurl + $"DeleteNotes?Id={id}";
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);       
+            var result = await client.DeleteAsync(url);
+
+            var respoCnt = await result.Content.ReadAsStringAsync();
+
+            respModel = JsonConvert.DeserializeObject<RespModel>(respoCnt);
+
+            return respModel;
+        }
 
 
         public async Task<RespModel> GetBehaviour(string token)

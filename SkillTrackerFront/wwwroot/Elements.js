@@ -3,12 +3,11 @@
     pwd.type = show ? "text" : "password";
 };
 
-window.addDarkMode = () => {
-    document.documentElement.classList.add("dark-mode");
-};
-
-window.removeDarkMode = () => {
-    document.documentElement.classList.remove("dark-mode");
+window.setDarkMode = (enabled) => {
+    if (enabled)
+        document.documentElement.classList.add("dark-mode");
+    else
+        document.documentElement.classList.remove("dark-mode");
 };
 
 

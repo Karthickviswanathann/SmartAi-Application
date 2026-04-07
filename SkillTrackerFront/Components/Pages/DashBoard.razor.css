@@ -1,19 +1,25 @@
-﻿.app-container {
+﻿body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.app-container {
     display: flex;
     width: 100%;
     height: 100vh;
     overflow: hidden;
     font-family: 'Inter', system-ui, sans-serif;
-    background: #f8fafc;
+    background: var(--bg-color);
 }
 
 .sidebar {
     width: 20%;
-    background: white;
+    background: var(--bg-color);
     border-right: 1px solid #e2e8f0;
     display: flex;
     flex-direction: column;
     box-shadow: 2px 0 12px rgba(0,0,0,0.06);
+    color: var(--text-color);
 }
 
 .sidebar-header {
@@ -27,7 +33,7 @@
     gap: 12px;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #1e2937;
+    color: var(--text-color);
 }
 
 .logo-icon svg {
@@ -38,7 +44,7 @@
 .new-note-btn {
     margin: 16px 20px;
     padding: 12px 20px;
-    background: var(--main-color);
+    background: var(--accent-color);
     color: white;
     border: none;
     border-radius: 8px;
@@ -51,7 +57,7 @@
 }
 
     .new-note-btn:hover {
-        background: var(--main-color);
+        background: var(--accent-color);
     }
 
 .search-box {
@@ -61,7 +67,7 @@
     .search-box input {
         width: 100%;
         padding: 10px 16px;
-        border: 1px solid var(--main-color);
+        border: 1px solid var(--accent-color);
         border-radius: 8px;
         background: #f8fafc;
         font-size: 0.95rem;
@@ -88,7 +94,7 @@
 
 .note-title {
     font-weight: 600;
-    color: var(--main-color);
+    color: var(--accent-color);
     font-size: 0.95rem;
     display: flex;
     gap: 88%;
@@ -96,7 +102,7 @@
 
 .note-preview {
     font-size: 0.85rem;
-    color: #64748b;
+    color: var(--text-color);
     margin-top: 2px;
 }
 
@@ -104,7 +110,7 @@
 .sidebar-footer {
     padding: 16px 20px;
     border-top: 1px solid #e2e8f0;
-    background: var(--main-color);
+    background: var(--bg-color);
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -177,7 +183,7 @@
 .content-area {
     flex: 1;
     padding: 0px 32px 32px 32px;
-    background: #f8fafc;
+    background: var(--bg-color);
     overflow-y: auto;
 }
 
@@ -194,15 +200,16 @@
     border: 1px solid #ccc;
 }
 
-.note-title-input{
+.note-title-input {
     font-size: 20px;
     font-weight: bolder;
     border: none;
     outline: none;
     margin-bottom: 20px;
     width: 100%;
-    background: none;
+    background: var(--bg-color);
     padding-left: 25px;
+    color: var(--accent-color)
 }
 
 .note-textarea {
@@ -216,16 +223,17 @@
 }
 
 .save-btn {
-    padding:10px;
-    border:none;
-    outline:none;
-    background:var(--main-color);
+    padding: 6px 12px;
+    border: none;
+    outline: none;
+    color:white;
+    background: var(--accent-color);
 }
 
 
 .ai-toolbar {
     height: 70px;
-    background: white;
+    background: var(--bg-color);
     border-top: 1px solid #e2e8f0;
     display: flex;
     align-items: center;
@@ -254,11 +262,11 @@
     border: none;
     cursor: pointer;
     font-size: 18px;
-    color: #555;
+    color: var(--accent-color);
 }
 
     .signout-btn:hover {
-        color: #000;
+        color: var(--accent-color);
     }
 
 .empty-editor {
@@ -283,7 +291,20 @@
     }
 
 
-    .search-box input {
+.search-box input {
+    width: 100%;
+    padding: 10px 16px;
+    border: 0.5px solid var(--accent-color);
+    border-radius: 8px;
+    background: #f8fafc;
+    font-size: 0.95rem;
+}
+    .search-box input:focus {
+        border: 1px solid var(--accent-color);
+        outline: none;
+    }
+
+    .select-Input {
         width: 100%;
         padding: 10px 16px;
         border: 1px solid #e2e8f0;
@@ -291,11 +312,3 @@
         background: #f8fafc;
         font-size: 0.95rem;
     }
-.select-Input {
-    width: 100%;
-    padding: 10px 16px;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    background: #f8fafc;
-    font-size: 0.95rem;
-}

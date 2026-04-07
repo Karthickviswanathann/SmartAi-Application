@@ -22,6 +22,7 @@ namespace SkillTrackerFront.Components.Pages
         private string Element;
         private string theme;
         private string token;
+        private string countOfWords;
 
         private System.Timers.Timer? autosaveTimer;
 
@@ -63,10 +64,12 @@ namespace SkillTrackerFront.Components.Pages
                     theme = json.ThemeColor;
                     Element = json.ElementColor;
 
-                    if (theme== "IsDarkMode")
-                        await JS.InvokeVoidAsync("addDarkMode");
+                    await JS.InvokeVoidAsync("setDarkMode", theme);
 
-                    await JS.InvokeVoidAsync("applyAccentColor", Element);
+                    isDarkMode = Convert.ToBoolean(theme);
+
+
+                    await JS.InvokeVoidAsync("applyAccentColor", accentColor);
                 }
 
 
@@ -126,16 +129,13 @@ namespace SkillTrackerFront.Components.Pages
 
             await JS.InvokeVoidAsync("applyFontToBody", SelectedFont);
         }
-        private async void ToggleTheme()
+        private async Task ToggleTheme()
         {
             isDarkMode = !isDarkMode;
-
-            if (isDarkMode)
-                await JS.InvokeVoidAsync("addDarkMode");
-            else
-                await JS.InvokeVoidAsync("removeDarkMode");
+            await JS.InvokeVoidAsync("setDarkMode", isDarkMode);
+            var res = await Flow.PostBehaviour(isDarkMode.ToString(),null, token);
         }
-    private void SelectAccent(string color) => selectedAccent = color;
+        private void SelectAccent(string color) => selectedAccent = color;
         private void SignOut() {
             try
             {
@@ -167,6 +167,8 @@ namespace SkillTrackerFront.Components.Pages
                 };
 
                 var res = await Flow.PostNotes(selectN, token);
+                StateHasChanged();
+                OnInitializedAsync();
             }
 
         
@@ -183,6 +185,8 @@ namespace SkillTrackerFront.Components.Pages
                 selectedNote = null;
 
             StateHasChanged();
+            OnInitializedAsync();
+
         }
         public class Note
         {
@@ -224,7 +228,12 @@ namespace SkillTrackerFront.Components.Pages
         {
             JS.InvokeVoidAsync("barmessage", Type, Msg, duration);
         }
-
+        private void CountWords(ChangeEventArgs e)
+        {
+            string text = e.Value?.ToString() ?? "";
+            countOfWords = text.Count(char.IsLetter).ToString();
+            StateHasChanged();
+        }
 
 
     }

@@ -113,11 +113,9 @@
                     <i class="fa-solid fa-clipboard"></i>
                 </span>
 
-                <span class="word-count">0 words</span>
+                <span class="word-count">@countOfWords words</span>
 
-                <span class="saved-status">
-                    <i class="fa-solid fa-check-circle"></i> Saved
-                </span>
+            
             </div>
         </header>
 
@@ -125,12 +123,15 @@
             @if (selectedNote != null)
             {
                <div style="display:flex;justify-content:space-between">
-                <input class="note-title-input"
-                       placeholder="Untitled Note"
-                       @bind="selectedNote.Title" style="padding-top:25px"
-                       @oninput="e => AutoSave()" />
-
-                <button class="save-btn">Save</button>
+                <div>
+                    <input class="note-title-input"
+                           placeholder="Untitled Note"
+                           @bind="selectedNote.Title" style="padding-top:25px"
+                           />
+                </div>
+                <div style="padding:15px">
+                <button class="save-btn" @onclick="SaveNotes">Save</button>
+                </div>
                </div>
                 <main class="content-area">
                     <div class="note-editor">
@@ -138,7 +139,7 @@
                         <textarea class="note-textarea"
                                   placeholder="Start writing..."
                               @bind="selectedNote.NotesText"
-                              @oninput="e => AutoSave()"></textarea>
+                              @oninput="CountWords"></textarea>
                     </div>
                 </main>
             }
@@ -173,6 +174,5 @@
 
 
 @code {
-
    
 }

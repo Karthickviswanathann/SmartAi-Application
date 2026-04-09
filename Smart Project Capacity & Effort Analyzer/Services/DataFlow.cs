@@ -164,13 +164,13 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
                 existUserDetail = new UserBehaviour
                 {
                     UserId = Convert.ToInt16(token[0]),
-                    ThemeColor = themeColor,
-                    ElementColor = ElementColor
-                };
+                    ThemeColor = themeColor == "" ? "" : themeColor,
+                    ElementColor = ElementColor == "" ? "" : ElementColor
+                }; 
 
            
                 _dbContext.UserBehaviour.Add(existUserDetail);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
 
                 respo.respCode = "200";
                 respo.respDesc = "User Behaviour  Added Successfully";
@@ -214,7 +214,7 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
                     Title=notes.Title,
                     NotesText = notes.NotesText,
                     CreatedDate=DateTime.Now,
-                    UpdatedDate = null
+                    Workspace= notes.Workspace
                 };
 
           
@@ -229,9 +229,10 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
 
             existUserDetail.Title = notes.Title;
             existUserDetail.NotesText = notes.NotesText;
+            existUserDetail.Workspace = notes.Workspace;
             existUserDetail.UpdatedDate = DateTime.Now;
 
-            _dbContext.SaveChangesAsync();
+           await _dbContext.SaveChangesAsync();
 
             respo.respCode = "200";
             respo.respDesc = "User  Behaviour Updated Successfully";
@@ -252,7 +253,7 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
 
             var existUserDetail = _dbContext.NotesMasters.Where(x => x.UserId == Convert.ToInt16(token[0]) && x.Id == Id).FirstOrDefault();
             _dbContext.NotesMasters.Remove(existUserDetail);
-            _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
 
             respo.respCode = "200";
             respo.respDesc = "User  Behaviour Deleted Successfully";

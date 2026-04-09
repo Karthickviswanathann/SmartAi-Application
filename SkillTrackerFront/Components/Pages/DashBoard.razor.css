@@ -42,8 +42,9 @@
 }
 
 .new-note-btn {
-    margin: 16px 20px;
-    padding: 12px 20px;
+    width:88% !important;
+    margin: 16px 20px !important;
+    padding: 12px 30px !important;
     background: var(--accent-color);
     color: white;
     border: none;
@@ -62,6 +63,7 @@
 
 .search-box {
     padding: 0 20px 12px;
+    position:relative;
 }
 
     .search-box input {
@@ -73,11 +75,17 @@
         font-size: 0.95rem;
     }
 
-.notes-list {
-    flex: 1;
-    overflow-y: auto;
-    padding: 8px 12px;
-}
+    .search-box i {
+        position: absolute;
+        left: 10%;
+        color: var(--accent-color)
+    }
+
+    .notes-list {
+        flex: 1;
+        overflow-y: auto;
+        padding: 8px 20px;
+    }
 
 .note-item {
     padding: 14px 16px;
@@ -89,8 +97,13 @@
 
     .note-item:hover,
     .note-item.selected {
-        background: #f1f5f9;
+        background: color-mix(in srgb, var(--accent-color) 30%, white);
     }
+
+
+.delete-icon:hover {
+    color: var(--accent-color) !important;
+}
 
 .note-title {
     font-weight: 600;
@@ -166,19 +179,22 @@
 
 .workspace-select {
     padding: 7px 14px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--accent-color);
     border-radius: 6px;
     background: white;
     font-size: 0.95rem;
+    outline:var(--accent-color);
 }
 
-.top-right {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    color: #64748b;
-    font-size: 0.9rem;
-}
+    
+
+    .top-right {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: #64748b;
+        font-size: 0.9rem;
+    }
 
 .content-area {
     flex: 1;
@@ -217,16 +233,24 @@
     border: none;
     outline: none;
     resize: none;
-    font-size: 16px;
     line-height: 1.7;
     background: transparent;
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: inherit;  
 }
 
+.note-preview {
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: inherit;
+}
 .save-btn {
     padding: 6px 12px;
-    border: none;
+    border-radius:15px;
+    border:none;
     outline: none;
-    color:white;
+    color: white;
     background: var(--accent-color);
 }
 
@@ -304,11 +328,284 @@
         outline: none;
     }
 
-    .select-Input {
+.select-Input {
+    width: 100%;
+    padding: 10px 16px;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    background: #f8fafc;
+    font-size: 0.95rem;
+    outline: var(--accent-color);
+}
+
+        .select-Input option:hover {
+            background-color: var(--accent-color) !important;
+            color: #fff;
+        }
+
+.search-box i {
+    position: absolute;
+    left: 84% !important;
+    top: 30% !important;
+    font-size: 16px !important;
+    color: var(--accent-color);
+}
+       
+.theme-toggle {
+    background: transparent !important;
+    padding: 5px 10px !important;
+    border-radius:10px;
+}
+
+    .theme-toggle:hover {
+        background: color-mix(in srgb, var(--bg-color) 80%, #ccc) !important;
+        padding: 5px 10px !important;
+        color: var(--text-color);
+        border-radius: 10px;
+    }
+
+.icon {
+    fill: var(--accent-color);
+    height:40px !important;
+}
+
+.logo-text{
+    font-size:20px;
+}
+
+
+
+
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*.note-actions {
+    display: flex;
+    gap: 10px;
+}*/
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #ccc;
+}
+
+    .icon-btn:hover {
+        color: var(--accent-color);
+    }
+
+.note-editor {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.pin-icon {
+    margin-right: 6px;
+    color: var(--accent-color);
+}
+
+.menu-toggle {
+    display: none !important;
+}
+
+
+/*responsive*/
+@media (max-width: 600px) {
+
+    .login-main-con{
+        width: 100% !important;
+        height: 80vh !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-container {
+        background: white;
+        width: 100% !important;
+        height: 70vh !important;
+        padding: 40px 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+ 
+
+    .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 10px;
+    }
+
+    .save-con {
+        position: fixed !important;
+        bottom: 0px !important;
+        right: 28px !important;
+        z-index: 999;
+    }
+
+    .save-btn {
+        padding: 8px 35px !important;
+        border-radius: 17px !important;
+        border: none;
+        outline: none;
+        color: white;
+        background: var(--accent-color);
+        font-size: 14px;
+    }
+
+    .note-textarea {
         width: 100%;
-        padding: 10px 16px;
-        border: 1px solid #e2e8f0;
+        height: 300px !important; /* better for small screens */
+        font-size: 14px;
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .sidebar {
+        display: none; /* hide sidebar on mobile */
+    }
+
+    .note-editor {
+        width: 100%;
+        height: 60vh !important;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .workspace-select {
+        padding: 2px 7px !important;
+        border: 1px solid var(--accent-color);
+        border-radius: 6px;
+        background: white;
+        font-size: 0.95rem;
+        outline: var(--accent-color);
+        position: absolute !important;
+        left: 30% !important;
+        bottom: 90% !important;
+    }
+    /* Sidebar */
+    .sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        right: -275px !important; /* start hidden off-screen to the right */
+        width: 275px !important;
+        height: 100vh !important;
+        background: var(--bg-color);
+        box-shadow: -2px 0 12px rgba(0, 0, 0, 0.3); /* shadow on left side */
+        z-index: 1500;
+        transition: right 0.3s ease-in-out; /* animate from right */
+        display: block !important;
+        overflow: scroll !important;
+    }
+
+    /* Menu toggle button */
+    .menu-toggle {
+        position: fixed;
+        top: 18px;
+        left: 5%;
+        z-index: 2000;
+        font-size: 22px;
+        background: var(--accent-color);
+        color: white;
+        padding: 3px 10px;
+        border: none;
+        border-radius: 8px;
+        display: block !important;
+    }
+
+    /* Example class to open sidebar */
+    .sidebar.open {
+        right: 0 !important; /* slide sidebar fully into view */
+    }
+
+
+
+
+   
+    .search-box input {
+        width: 100%;
+        padding: 3px 20px !important;
+        border: 0.5px solid var(--accent-color);
+        border-radius: 10px !important;
+        background: #f8fafc;
+        font-size: 0.8rem !important;
+    }
+
+    .top-btn-con{
+        display:flex !important; 
+        padding-top:10px
+    }
+    .search-box {
+        padding: 6px 5px 6px 5px !important;
+        width: 66% !important;
+    }
+
+    .new-note-btn {
+        width: 30% !important;
+        margin: 5px 8px !important;
+        padding: 5px 14px !important;
+        background: var(--accent-color);
+        color: white;
+        border: none;
+        border-radius: 14px !important;
+        font-weight: 600;
+        cursor: pointer;
+        /* display: flex; */
+        /* align-items: center; */
+        /* gap: 8px; */
+        font-size: 8px !important;
+    }
+
+    .select-Input{
+        width: 100%;
+        padding: 5px 20px !important;
+        border: 2px solid var(--accent-color);
         border-radius: 8px;
         background: #f8fafc;
         font-size: 0.95rem;
+        outline: var(--accent-color);
     }
+    .signout-btn {
+        padding-top: 25px !important;
+    }
+
+    .logo{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+      
+    }
+
+    .search-box i {
+        position: absolute;
+        right: 8% !important;
+        top: 36% !important;
+        font-size: 12px !important;
+        color: var(--accent-color);
+    }
+
+    .delete-icon{
+        color: var(--accent-color) !important;
+        font-size:12px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .sidebar {
+        width: 150px;
+    }
+
+    .menu-toggle {
+        display: none !important;
+    }
+}

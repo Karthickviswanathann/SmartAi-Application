@@ -12,12 +12,15 @@ namespace SkillTrackerFront.Components.Pages
     {
         private string SearchTerm = "";
         private string SelectedSize = "";
+        private string FontSize = "";
+        private string FontFamily = "";
         private string NoteTitle = "";
         private string NoteContent = "";
         private string SelectedWorkspace = "General";
         private string SelectedFont = "Inter";
         private string selectedAccent = "#3b82f6";
         private bool isDarkMode;
+        private bool isPinned;
         private string accentColor;
         private string Element;
         private string theme;
@@ -38,6 +41,9 @@ namespace SkillTrackerFront.Components.Pages
                 "Georgia"
             };
 
+        public List<string> AvailableFontSizes =
+        Enumerable.Range(10, 15).Select(i => $"{i}px").ToList();
+
         private List<string> accentColors = new() { "#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899", "#06b6d4" };
 
         private List<Note> notes = new List<Note>();
@@ -53,7 +59,8 @@ namespace SkillTrackerFront.Components.Pages
         {
             try
             {
-                token= await JS.InvokeAsync<string>("sessionStorage.getItem", "authToken");
+                notes.Clear();
+                token = await JS.InvokeAsync<string>("sessionStorage.getItem", "authToken");
 
                 var res1 = await Flow.GetBehaviour(token);
 
@@ -61,15 +68,28 @@ namespace SkillTrackerFront.Components.Pages
                 {
                     var json = JsonConvert.DeserializeObject<BehaviourDto>(res1.Data.ToString());
 
-                    theme = json.ThemeColor;
-                    Element = json.ElementColor;
 
-                    await JS.InvokeVoidAsync("setDarkMode", theme);
+                    theme = string.IsNullOrEmpty(json.ThemeColor) ? "false" : json.ThemeColor;
+                    Element = string.IsNullOrEmpty(json.ElementColor) ? "var(--accent-color)" : json.ElementColor;
 
-                    isDarkMode = Convert.ToBoolean(theme);
+                    await JS.InvokeVoidAsync("sessionStorage.setItem", "ThemeColor", theme);
+                    await JS.InvokeVoidAsync("sessionStorage.setItem", "Elementcolor", Element);
 
 
-                    await JS.InvokeVoidAsync("applyAccentColor", accentColor);
+
+                    var eleme = await JS.InvokeAsync<string>("sessionStorage.getItem", "Elementcolor");
+                    var them = await JS.InvokeAsync<string>("sessionStorage.getItem", "ThemeColor");
+
+                    if (them=="true")
+                    {
+                        await JS.InvokeVoidAsync("setDarkMode", them);
+
+                    }
+
+                    isDarkMode = Convert.ToBoolean(them);
+
+
+                    await JS.InvokeVoidAsync("applyAccentColor", eleme);
                 }
 
 
@@ -107,32 +127,63 @@ namespace SkillTrackerFront.Components.Pages
 
             await JS.InvokeVoidAsync("applyAccentColor", accentColor);
 
-            //await ThemeService.SaveAccentColorAsync(UserId, accentColor);
+            await JS.InvokeVoidAsync("sessionStorage.setItem", "Elementcolor", accentColor);
 
-            var res = await Flow.PostBehaviour(accentColor,null,token);
+            //await ThemeService.SaveAccentColorAsync(UserId, accentColor);
+            var color = accentColor.ToString().Replace("#", "%23");
+            var res = await Flow.PostBehaviour("", color, token);
             StateHasChanged();
         }
-
-
-
-        private void AutoSave()
+        private async Task ChangeFontSize(ChangeEventArgs e)
         {
-            autosaveTimer?.Stop();
-            autosaveTimer = new System.Timers.Timer(30000); 
-            autosaveTimer.Elapsed += async (_, _) => await SaveNotes();
-            autosaveTimer.AutoReset = false;
-            autosaveTimer.Start();
+
+            if(selectedNote != null)
+            {
+                FontSize = e.Value.ToString();
+
+                StateHasChanged();
+            }
+
+            else
+            {
+                ShowMsg("Error","Select Or Create Notes are Required",3000);
+                return;
+            }
+  
         }
+
+        //private void AutoSave()
+        //{
+        //    autosaveTimer?.Stop();
+        //    autosaveTimer = new System.Timers.Timer(30000); 
+        //    autosaveTimer.Elapsed += async (_, _) => await SaveNotes();
+        //    autosaveTimer.AutoReset = false;
+        //    autosaveTimer.Start();
+        //}
         private async void ApplyFont(ChangeEventArgs e)
         {
-            SelectedFont = e.Value.ToString();
 
-            await JS.InvokeVoidAsync("applyFontToBody", SelectedFont);
+            if (selectedNote != null)
+            {
+                SelectedFont = e.Value.ToString();
+
+                StateHasChanged();
+            }
+
+            else
+            {
+                ShowMsg("Error", "Select Or Create Notes are Required", 3000);
+                return;
+            }
         }
+
+       
         private async Task ToggleTheme()
         {
             isDarkMode = !isDarkMode;
             await JS.InvokeVoidAsync("setDarkMode", isDarkMode);
+            await JS.InvokeVoidAsync("sessionStorage.setItem", "ThemeColor", isDarkMode);
+
             var res = await Flow.PostBehaviour(isDarkMode.ToString(),null, token);
         }
         private void SelectAccent(string color) => selectedAccent = color;
@@ -152,6 +203,25 @@ namespace SkillTrackerFront.Components.Pages
         
         }
 
+        private void TogglePin()
+        {
+            if (selectedNote == null)
+                return;
+
+            isPinned = !isPinned;
+
+            notes = notes
+                .OrderByDescending(n => n.IsPinned)
+                .ToList();
+
+            StateHasChanged();
+        }
+
+        private async Task CopyNoteText()
+        {
+            await JS.InvokeVoidAsync("copyToClipboard", selectedNote.NotesText);
+        }
+
         public async Task SaveNotes()
         {
             if (string.IsNullOrEmpty(selectedNote.NotesText))
@@ -163,12 +233,19 @@ namespace SkillTrackerFront.Components.Pages
                 {
                     Id=selectedNote.Id,
                     Title=selectedNote.Title,
-                    NotesText=selectedNote.NotesText
+                    NotesText=selectedNote.NotesText,
+                    Workspace=SelectedWorkspace
                 };
 
                 var res = await Flow.PostNotes(selectN, token);
+               
+              
+
+                ShowMsg("Success", "Notes Added Succesfully", 3000);
                 StateHasChanged();
                 OnInitializedAsync();
+                return;
+
             }
 
         
@@ -184,6 +261,8 @@ namespace SkillTrackerFront.Components.Pages
             if (selectedNote == note)
                 selectedNote = null;
 
+            var res = await Flow.DeleteNotes(note.Id,token);
+
             StateHasChanged();
             OnInitializedAsync();
 
@@ -193,7 +272,9 @@ namespace SkillTrackerFront.Components.Pages
             public int Id { get; set; }
             public string Title { get; set; } = "";
             public string NotesText { get; set; } = "";
+            public string? Workspace { get; set; }
             public bool IsSelected { get; set; }
+            public bool IsPinned { get; set; }
         }
 
 
@@ -213,7 +294,6 @@ namespace SkillTrackerFront.Components.Pages
 
             notes.Add(newNote);
             selectedNote = newNote;
-            AutoSave();
         }
 
         private void SelectNote(Note note)
@@ -223,6 +303,12 @@ namespace SkillTrackerFront.Components.Pages
             selectedNote = note;
         }
 
+        private void SelectPin(Note note)
+        {
+            notes.ForEach(n => n.IsPinned = false);
+            note.IsPinned = true;
+            selectedNote = note;
+        }
 
         public void ShowMsg(string Type, string Msg, int duration)
         {
@@ -235,6 +321,8 @@ namespace SkillTrackerFront.Components.Pages
             StateHasChanged();
         }
 
+
+      
 
     }
 }

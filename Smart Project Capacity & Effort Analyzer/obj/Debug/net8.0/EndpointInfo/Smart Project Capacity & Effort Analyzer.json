@@ -231,6 +231,10 @@
           "notesText": {
             "type": "string",
             "nullable": true
+          },
+          "workspace": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

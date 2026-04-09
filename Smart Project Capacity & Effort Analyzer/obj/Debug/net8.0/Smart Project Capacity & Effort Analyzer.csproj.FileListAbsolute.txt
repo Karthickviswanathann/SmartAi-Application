@@ -154,6 +154,8 @@ D:\Projects\Smart Project Capacity & Effort Analyzer\Smart Project Capacity & Ef
 D:\Projects\Smart Project Capacity & Effort Analyzer\Smart Project Capacity & Effort Analyzer\obj\Debug\net8.0\swae.build.ex.cache
 D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\bin\Debug\net8.0\appsettings.Development.json
 D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\bin\Debug\net8.0\appsettings.json
+D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\bin\Debug\net8.0\dotnet-tools.json
+D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\bin\Debug\net8.0\Smart Project Capacity & Effort Analyzer.staticwebassets.runtime.json
 D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\bin\Debug\net8.0\Smart Project Capacity & Effort Analyzer.staticwebassets.endpoints.json
 D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\bin\Debug\net8.0\Smart Project Capacity & Effort Analyzer.exe
 D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\bin\Debug\net8.0\Smart Project Capacity & Effort Analyzer.deps.json

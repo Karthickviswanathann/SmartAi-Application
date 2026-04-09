@@ -89,6 +89,7 @@ namespace SkillTrackerFront.Services
                 var _nameId = jwt.Claims.FirstOrDefault(c => c.Type == "nameid")?.Value;
                 string UsName = decrptjson["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
 
+                await _Js.InvokeVoidAsync("sessionStorage.removeItem", "authToken");
 
                 await _Js.InvokeVoidAsync("sessionStorage.setItem", "authToken", token);
                 //await _protectedSessionStorage.SetItemAsync("Sessiondata", Sesiondata.JWT);
@@ -111,6 +112,8 @@ namespace SkillTrackerFront.Services
         public async void NotifyUserLogout()
         {
             await _Js.InvokeVoidAsync("sessionStorage.removeItem", "authToken");
+            await _Js.InvokeVoidAsync("sessionStorage.removeItem", "ThemeColor");
+            await _Js.InvokeVoidAsync("sessionStorage.removeItem", "Elementcolor");
             var anonymousUser = new ClaimsPrincipal(new ClaimsIdentity());
             NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(anonymousUser)));
         }

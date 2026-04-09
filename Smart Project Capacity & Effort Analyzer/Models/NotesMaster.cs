@@ -6,6 +6,7 @@
         public int UserId { get; set; }
         public string? Title { get; set; }
         public string? NotesText { get; set; }
+        public string? Workspace { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public UserMaster User { get; set; }
@@ -18,6 +19,8 @@
         public int Id { get; set; }
         public string? Title { get; set; }
         public string? NotesText { get; set; }
+        public string? Workspace { get; set; }
+
 
     }
 }

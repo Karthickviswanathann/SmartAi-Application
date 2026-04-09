@@ -68,7 +68,7 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Controllers
 
         [HttpPost("UpdateColors")]
 
-        public async Task<IActionResult> UpdateColors(string? themeColor, string? ElementColor)
+        public async Task<IActionResult> UpdateColors(string? themeColor,string? ElementColor)
         {
             var res = await _dataFlow.PostColor(themeColor, ElementColor, HttpContext);
 

@@ -24,7 +24,7 @@
                     </g>
                 </svg>
             </div>
-            <h2 style="font-weight:bold">SmartNote AI</h2>
+            <h2 style="font-weight:bold">SmartNote</h2>
         </div>
 
         <p class="welcome">Welcome back</p>
@@ -47,8 +47,9 @@
     <input type="password" id="password" @bind="Password" placeholder="••••••••">
 
     <!-- 👁 FontAwesome Eye Icon -->
-    <i class="fa-solid fa-eye toggle-eye" @onclick="TogglePassword"></i>
-</div>
+    <i class="fa-solid  @(showPassword ? "fa-eye" : "fa-eye-slash") toggle-eye" @onclick="TogglePassword"></i>
+
+                </div>
         </div>
 
 

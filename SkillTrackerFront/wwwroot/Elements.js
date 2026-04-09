@@ -12,5 +12,13 @@ window.setDarkMode = (enabled) => {
 
 
 window.applyAccentColor = (color) => {
+    console.log("Applying color:", color);
     document.documentElement.style.setProperty("--accent-color", color);
+};
+
+
+window.copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text)
+        .then(() => console.log("Copied!"))
+        .catch(err => console.error("Copy failed", err));
 };

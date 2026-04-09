@@ -30,7 +30,7 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("NotesText")
@@ -39,11 +39,14 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Workspace")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

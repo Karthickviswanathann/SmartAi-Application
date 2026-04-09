@@ -147,9 +147,31 @@
 
 .input-icon[b-jhs19en54p] {
     position: absolute;
-    top: 65%;
+    top: 68%;
     left: 5%;
     transform: translateY(-50%);
     font-size: 22px;
     color: grey;
 }
+
+.password-input[b-jhs19en54p] {
+    position: relative;
+}
+
+.toggle-eye[b-jhs19en54p] {
+    position: absolute;
+    right: 20px;
+    top: 68%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: grey;
+    font-size: 22px;
+}
+
+/*.fa-lock {
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    font-size: 20px;
+    color: grey;
+}*/

@@ -1,12 +1,13 @@
 ﻿@page "/register"
 @using Microsoft.AspNetCore.Components.Forms
-@using SkillTrackerFront.Components.DtoModels
 @using SkillTrackerFront.Components.Layout
+@using SkillTrackerFront.Services
 @using SkillTrackerFront.Services.Interface
-@inject NavigationManager Navigation
 @layout AuthLayout
+@inject NavigationManager Navigation
 @inject IJSRuntime JS
 @inject IDataFlow Flow
+@inject LoadingService Loader
 
 
 
@@ -22,7 +23,7 @@
                     </g>
                 </svg>
             </div>
-            <h2 style="font-weight:bold">SmartNote AI</h2>
+            <h2 style="font-weight:bold">SmartNote</h2>
         </div>
 
         <p class="welcome">Create your account</p>
@@ -47,7 +48,10 @@
 
         <i class="fa-solid fa-lock input-icon"></i>
 
-        <input type="@passwordInputType" id="password" @bind="Password" placeholder="••••••••">
+               
+                <input type="@passwordInputType" id="password" @bind="Password" placeholder="••••••••">
+                            <i class="fa-solid  @(showPassword ? "fa-eye" : "fa-eye-slash") toggle-eye" @onclick="TogglePassword"></i>
+
     </div>
 
     <div class="form-group">
@@ -56,6 +60,8 @@
         <i class="fa-solid fa-lock input-icon"></i>
 
         <input type="@confirmPasswordInputType" id="confirm" @bind="ConfirmPassword" placeholder="••••••••">
+                                <i class="fa-solid @(showConfirmPassword ? "fa-eye" : "fa-eye-slash") toggle-eye" @onclick="ToggleConfirmPassword"></i>
+
     </div>
 
     <button class="sign-in-btn">Submit</button>
@@ -65,8 +71,18 @@
         
 
         <div class="footer-text" style="font-size:20px">
-            Already have an account?
-            <a href="/login" class="create-account">Sign in</a>
+
+
+            @if (!isSumbit)
+            {
+                <p>
+                    Already have an account?
+                    <a @onclick="Navicate" class="create-account">Sign in</a>
+                </p>
+            }
+            
+
+          
         </div>
     </div>
 </div>
@@ -81,10 +97,12 @@
 
 
     bool showPassword = false;
+    bool isSumbit = false;
     bool showConfirmPassword = false;
 
     string passwordInputType => showPassword ? "text" : "password";
     string confirmPasswordInputType => showConfirmPassword ? "text" : "password";
+
     // int PasswordStrength
     // {
     //     get
@@ -126,11 +144,14 @@
         showConfirmPassword = !showConfirmPassword;
     }
 
-
+    void Navicate()
+    {
+        Navigation.NavigateTo("/login",true);
+    }
 
     async Task HandleSubmit()
     {
-
+       isSumbit = true;
         if (string.IsNullOrWhiteSpace(UserName)||string.IsNullOrEmpty(Password)
         ||string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(ConfirmPassword))
         {
@@ -146,6 +167,8 @@
 
         else
         {
+            Loader.Show();
+
             SkillTrackerFront.Components.DtoModels.Register registerDels = new SkillTrackerFront.Components.DtoModels.Register
                 {
                     Username = UserName,
@@ -153,19 +176,28 @@
                     Email = Email
                 };
 
+            await Task.Delay(10000);
+
             var res = await Flow.Register(registerDels);
 
             if (res.respCode == "200")
             {
-                ShowMsg("Success","Succesfully Register",3000);
+                Loader.Hide();
+                ShowMsg("Success","Succesfully Register",13000);
+                isSumbit = false;
                 return;
             }
 
             else
             {
+                Loader.Hide();
+
                 ShowMsg("Error",res.respDesc,3000);
+                isSumbit = false;
+
                 return; 
             }
+            Loader.Hide();
 
         }
 

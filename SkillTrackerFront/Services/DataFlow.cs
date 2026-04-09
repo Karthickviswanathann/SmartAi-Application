@@ -71,6 +71,7 @@ namespace SkillTrackerFront.Services
 
             var appurl = _configuration.GetRequiredSection("ApiUrl").Value;
 
+        http://localhost:5237/api/Main/UpdateColors?themeColor=True&ElementColor=%23ff0f0f
 
             var url = appurl + $"UpdateColors?themeColor={ThemeColor}&ElementColor={ElementColor}";
 
@@ -112,7 +113,7 @@ namespace SkillTrackerFront.Services
             var client = new HttpClient();
 
             var appurl = _configuration.GetRequiredSection("ApiUrl").Value;
-            var url = appurl + $"DeleteNotes?Id={id}";
+            var url = appurl + $"DeleteNotes?noteId={id}";
 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);       
             var result = await client.DeleteAsync(url);

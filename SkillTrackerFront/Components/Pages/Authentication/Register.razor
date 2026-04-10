@@ -124,7 +124,7 @@
 
     async Task HandleSubmit()
     {
-       isSumbit = true;
+        isSumbit = true;
         if (string.IsNullOrWhiteSpace(UserName)||string.IsNullOrEmpty(Password)
         ||string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(ConfirmPassword))
         {
@@ -160,6 +160,7 @@
             {
                 Loader.Hide();
                 ShowMsg("Success","Succesfully Register",13000);
+                ClearData();
                 isSumbit = false;
                 return;
             }
@@ -178,11 +179,17 @@
         }
 
 
-       
+
 
     }
 
-
+    private void ClearData()
+    {
+        UserName = "";
+        Email="";
+        Password = "";
+        ConfirmPassword = "";
+    }
 
     public void ShowMsg(string Type,string Msg,int duration)
     {

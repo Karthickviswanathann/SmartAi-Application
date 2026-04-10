@@ -97,7 +97,6 @@ namespace SkillTrackerFront.Components.Pages
                 if (res2.Data != null)
                 {
                     var resNotes = JsonConvert.DeserializeObject<List<AddNotesDto>>(res2.Data.ToString());
-
                     foreach (var note in resNotes) {
 
                         notes.Add(new Note{

@@ -203,7 +203,7 @@
 }*/
 
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     .register-container {
         height: 100vh;
@@ -215,7 +215,7 @@
         font-size: 16px !important;
         margin-bottom: 10px;
         text-align: center !important;
-        text-align:center;
+        text-align: center;
     }
 
     .form-group {
@@ -271,8 +271,6 @@
     .logo {
         margin-top: 17px !important;
     }
-
-   
 }
 
 

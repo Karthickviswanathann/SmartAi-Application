@@ -417,9 +417,9 @@
 
 
 /*responsive*/
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-    .login-main-con{
+    .login-main-con {
         width: 100% !important;
         height: 80vh !important;
         display: flex;
@@ -436,7 +436,7 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         text-align: center;
     }
- 
+
 
     .main-content {
         flex: 1;
@@ -531,7 +531,7 @@
 
 
 
-   
+
     .search-box input {
         width: 100%;
         padding: 3px 20px !important;
@@ -541,10 +541,11 @@
         font-size: 0.8rem !important;
     }
 
-    .top-btn-con{
-        display:flex !important; 
-        padding-top:10px
+    .top-btn-con {
+        display: flex !important;
+        padding-top: 10px
     }
+
     .search-box {
         padding: 6px 5px 6px 5px !important;
         width: 66% !important;
@@ -566,7 +567,7 @@
         font-size: 8px !important;
     }
 
-    .select-Input{
+    .select-Input {
         width: 100%;
         padding: 5px 20px !important;
         border: 2px solid var(--accent-color);
@@ -575,15 +576,15 @@
         font-size: 0.95rem;
         outline: var(--accent-color);
     }
+
     .signout-btn {
         padding-top: 25px !important;
     }
 
-    .logo{
+    .logo {
         display: flex;
         align-items: center;
-        justify-content:center;
-      
+        justify-content: center;
     }
 
     .search-box i {
@@ -594,13 +595,13 @@
         color: var(--accent-color);
     }
 
-    .delete-icon{
+    .delete-icon {
         color: var(--accent-color) !important;
-        font-size:12px;
+        font-size: 12px;
     }
 }
 
-@media (min-width: 600px) and (max-width: 900px) {
+@media (min-width: 700px) and (max-width: 900px) {
     .sidebar {
         width: 150px;
     }

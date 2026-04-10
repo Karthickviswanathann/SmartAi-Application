@@ -403,7 +403,7 @@
     animation: spin 0.9s linear infinite;
 }
 
-@media(max-width:600px){
+@media(max-width:700px){
     .login-container {
         background: white;
         width: 100%;

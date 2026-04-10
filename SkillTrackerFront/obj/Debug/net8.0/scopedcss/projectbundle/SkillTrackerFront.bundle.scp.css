@@ -606,13 +606,83 @@ main[b-fk5s21qxb1] {
     border-radius: 50%;
     animation: spin 0.9s linear infinite;
 }
+
+@media(max-width:600px){
+    .login-container[b-ksg44tekwy] {
+        background: white;
+        width: 100%;
+        height: 100vh;
+        padding: 40px 30px;     
+        border-radius: 0px !important;
+        box-shadow: none !important;
+        text-align: center;
+    }
+
+    .form-group input[b-ksg44tekwy]{
+        width: 100%;
+        outline: none;
+        border: 1px solid #ccc;
+        padding: 8px 60px !important;
+        border-radius: 15px;
+        font-size: 20px;
+    }
+
+    .welcome[b-ksg44tekwy] {
+        font-size: 20px;
+        color: #334155;
+        margin-bottom: 50px !important;
+        font-weight: bold;
+        padding-top: 10px !important;
+    }
+
+    .logo-icon[b-ksg44tekwy] {
+        
+        font-size: 20px !important;
+    }
+
+    .footer-text[b-ksg44tekwy]{
+        font-size:16px !important;
+    }
+}
+
 /* /Components/Pages/Authentication/Register.razor.rz.scp.css */
-.register-main-con[b-jhs19en54p] {
+/*.register-main-con {
     width: 100% !important;
     height: 100vh !important;
     display: flex;
     justify-content: center;
     align-items: center;
+}*/
+
+
+/*.register-container {
+    background: white;
+    width: 30%;
+    height: 95vh;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}*/
+
+.register-main-con[b-jhs19en54p] {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 🔥 prevents scroll */
+}
+
+.register-container[b-jhs19en54p] {
+    width: 100%;
+    max-width: 500px;
+    height: 100vh; /* full screen */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .register-page[b-jhs19en54p] {
@@ -623,15 +693,7 @@ main[b-fk5s21qxb1] {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.register-container[b-jhs19en54p] {
-    background: white;
-    width: 30%;
-    height: 95vh;
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+
 
 .logo[b-jhs19en54p] {
     display: flex;
@@ -658,6 +720,8 @@ main[b-fk5s21qxb1] {
     color: #334155;
     margin-bottom: 30px;
     font-weight: bold;
+    text-align:center;
+    padding-top:17px;
 }
 
 .form-group[b-jhs19en54p] {
@@ -742,6 +806,7 @@ main[b-fk5s21qxb1] {
     margin-top: 25px;
     font-size: 14px;
     color: #64748b;
+    text-align:center;
 }
 
 .create-account[b-jhs19en54p] {
@@ -784,6 +849,81 @@ main[b-fk5s21qxb1] {
     font-size: 20px;
     color: grey;
 }*/
+
+
+@media (max-width: 600px) {
+
+    .register-container[b-jhs19en54p] {
+        height: 100vh;
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .welcome[b-jhs19en54p] {
+        font-size: 16px !important;
+        margin-bottom: 10px;
+        text-align: center !important;
+        text-align:center;
+    }
+
+    .form-group[b-jhs19en54p] {
+        margin-bottom: 8px;
+    }
+
+        .form-group label[b-jhs19en54p] {
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .form-group input[b-jhs19en54p] {
+            padding: 8px 35px;
+            font-size: 14px;
+            border-radius: 8px;
+        }
+
+    .input-icon[b-jhs19en54p] {
+        font-size: 14px;
+        left: 10px;
+        top: 65%;
+    }
+
+    .toggle-eye[b-jhs19en54p] {
+        font-size: 14px;
+        right: 10px;
+        top: 65%;
+    }
+
+    .sign-in-btn[b-jhs19en54p] {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .footer-text[b-jhs19en54p] {
+        font-size: 16px !important;
+        margin-top: 5px;
+        text-align: center !important;
+    }
+
+    .logo-icon[b-jhs19en54p] {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .footer-text[b-jhs19en54p] {
+        font-size: 16px !important;
+        text-align: center !important;
+    }
+
+
+    .logo[b-jhs19en54p] {
+        margin-top: 17px !important;
+    }
+
+   
+}
+
+
 /* /Components/Pages/DashBoard.razor.rz.scp.css */
 body[b-zzg0y1477c] {
     background: var(--bg-color);

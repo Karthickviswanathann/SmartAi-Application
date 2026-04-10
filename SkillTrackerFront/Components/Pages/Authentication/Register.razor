@@ -10,6 +10,7 @@
 @inject LoadingService Loader
 
 
+<LoaderSpin />
 
 <div class="register-main-con">
     <div class="register-container">
@@ -23,7 +24,7 @@
                     </g>
                 </svg>
             </div>
-            <h2 style="font-weight:bold">SmartNote</h2>
+            <h2 style="font-weight:bold;text-align:center;">SmartNote</h2>
         </div>
 
         <p class="welcome">Create your account</p>
@@ -77,15 +78,18 @@
             {
                 <p>
                     Already have an account?
-                    <a @onclick="Navicate" class="create-account">Sign in</a>
+                    <a @onclick="Navicate" style="cursor:pointer" class="create-account">Sign in</a>
                 </p>
             }
             
-
-          
         </div>
     </div>
 </div>
+
+
+
+
+
 
 
 @code {
@@ -102,37 +106,6 @@
 
     string passwordInputType => showPassword ? "text" : "password";
     string confirmPasswordInputType => showConfirmPassword ? "text" : "password";
-
-    // int PasswordStrength
-    // {
-    //     get
-    //     {
-    //         int score = 0;
-
-    //         if (Password?.Length >= 6) score++;
-    //         if (Password?.Length >= 10) score++;
-    //         if (System.Text.RegularExpressions.Regex.IsMatch(Password ?? "", "[A-Z]")) score++;
-    //         if (System.Text.RegularExpressions.Regex.IsMatch(Password ?? "", "[0-9]")) score++;
-    //         if (System.Text.RegularExpressions.Regex.IsMatch(Password ?? "", "[^A-Za-z0-9]")) score++;
-
-    //         return score;
-    //     }
-    // }
-
-    // string StrengthLabel => PasswordStrength switch
-    // {
-    //     1 => "Weak",
-    //     2 => "Fair",
-    //     3 => "Good",
-    //     4 => "Strong",
-    //     5 => "Very Strong",
-    //     _ => ""
-    // };
-
-    // bool CanSubmit =>
-    //     !string.IsNullOrEmpty(UserName) &&
-    //     !string.IsNullOrEmpty(Email) &&
-    //     Password == ConfirmPassword;
 
     void TogglePassword()
     {
@@ -168,6 +141,9 @@
         else
         {
             Loader.Show();
+            await InvokeAsync(StateHasChanged);
+            await Task.Delay(50);
+
 
             SkillTrackerFront.Components.DtoModels.Register registerDels = new SkillTrackerFront.Components.DtoModels.Register
                 {

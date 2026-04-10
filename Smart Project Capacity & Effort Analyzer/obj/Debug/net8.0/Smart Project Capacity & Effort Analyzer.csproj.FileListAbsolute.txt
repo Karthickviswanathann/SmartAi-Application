@@ -302,7 +302,6 @@ D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\obj\Debug\net8
 D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\obj\Debug\net8.0\staticwebassets.development.json
 D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\obj\Debug\net8.0\swae.build.ex.cache
-D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\obj\Debug\net8.0\Smart Pr.2C3FF4A5.Up2Date
 D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\obj\Debug\net8.0\Smart Project Capacity & Effort Analyzer.dll
 D:\Projects\SkillTracker\Smart Project Capacity & Effort Analyzer\obj\Debug\net8.0\refint\Smart Project Capacity & Effort Analyzer.dll

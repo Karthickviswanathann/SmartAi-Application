@@ -11,6 +11,7 @@
 @inject AuthenticationStateProvider stateprovider
 @inject LoadingService Loader
 
+<LoaderSpin />
 
 <div class="login-main-con">
     <div class="login-container">
@@ -68,13 +69,13 @@
     </div>
 </div>
 
-@if (IsLoading)
+@* @if (IsLoading)
 {
     <div class="loader-overlay">
         <div class="spinner"></div>
     </div>
 }
-
+ *@
 
 
 @code {
@@ -84,42 +85,76 @@
     bool showPassword = false;
     bool IsLoading = false;
 
-    public async void HandleSubmit()
+    // public async void HandleSubmit()
+    // {
+    //     if (string.IsNullOrEmpty(UserName) && string.IsNullOrEmpty(Password))
+    //     {
+    //         ShowMsg("Error"," All Credentials are Required",3000);
+    //         return;
+    //     }
+
+    //     else 
+    //     {
+    //         Loader.Show();
+    //         var res = await Flow.Login(UserName,Password);
+    //         if (res.respCode == "200")
+    //         {
+                
+    //                     var state = (CustAuthStateProvider)stateprovider;
+
+    //                     StateHasChanged();
+
+    //                     state.NotifyUserAuthentication(res.Data.ToString());
+
+    //             // AuthState.NotifyUserAuthentication(res.Data.ToString());
+    //             // ShowMsg("Success","Login Succesfully",3000);
+    //             // await Task.Delay(300);
+    //            // Navigation.NavigateTo("/home", true);
+  
+    //             Loader.Hide();
+
+    //             return;
+    //         }
+
+    //         else
+    //         {
+    //             ShowMsg("Error","Invalid Credentials",3000);
+    //             return;
+    //         }         
+    //     }
+    // }
+
+
+    public async Task HandleSubmit()
     {
         if (string.IsNullOrEmpty(UserName) && string.IsNullOrEmpty(Password))
         {
-            ShowMsg("Error"," All Credentials are Required",3000);
+            ShowMsg("Error", "All Credentials are Required", 3000);
             return;
         }
 
-        else 
+        Loader.Show();
+        await InvokeAsync(StateHasChanged);
+        await Task.Delay(50);
+
+        var res = await Flow.Login(UserName, Password);
+
+        if (res.respCode == "200")
         {
-            Loader.Show();
-            var res = await Flow.Login(UserName,Password);
-            if (res.respCode == "200")
-            {
-                
-                        var state = (CustAuthStateProvider)stateprovider;
+            var state = (CustAuthStateProvider)stateprovider;
 
-                        StateHasChanged();
+            await JS.InvokeVoidAsync("sessionStorage.setItem", "authToken", res.Data.ToString());
 
-                        state.NotifyUserAuthentication(res.Data.ToString());
+            state.NotifyUserAuthentication(res.Data.ToString());
 
-                // AuthState.NotifyUserAuthentication(res.Data.ToString());
-                // ShowMsg("Success","Login Succesfully",3000);
-                // await Task.Delay(300);
-               // Navigation.NavigateTo("/home", true);
-  
-                Loader.Hide();
+            Navigation.NavigateTo("/", true);
 
-                return;
-            }
-
-            else
-            {
-                ShowMsg("Error","Invalid Credentials",3000);
-                return;
-            }         
+            Loader.Hide();
+        }
+        else
+        {
+            Loader.Hide();
+            ShowMsg("Error", "Invalid Credentials", 3000);
         }
     }
 

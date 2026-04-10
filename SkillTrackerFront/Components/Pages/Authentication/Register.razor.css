@@ -1,9 +1,40 @@
-﻿.register-main-con {
+﻿/*.register-main-con {
     width: 100% !important;
     height: 100vh !important;
     display: flex;
     justify-content: center;
     align-items: center;
+}*/
+
+
+/*.register-container {
+    background: white;
+    width: 30%;
+    height: 95vh;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}*/
+
+.register-main-con {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 🔥 prevents scroll */
+}
+
+.register-container {
+    width: 100%;
+    max-width: 500px;
+    height: 100vh; /* full screen */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .register-page {
@@ -14,15 +45,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.register-container {
-    background: white;
-    width: 30%;
-    height: 95vh;
-    padding: 40px 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+
 
 .logo {
     display: flex;
@@ -49,6 +72,8 @@
     color: #334155;
     margin-bottom: 30px;
     font-weight: bold;
+    text-align:center;
+    padding-top:17px;
 }
 
 .form-group {
@@ -133,6 +158,7 @@
     margin-top: 25px;
     font-size: 14px;
     color: #64748b;
+    text-align:center;
 }
 
 .create-account {
@@ -175,3 +201,78 @@
     font-size: 20px;
     color: grey;
 }*/
+
+
+@media (max-width: 600px) {
+
+    .register-container {
+        height: 100vh;
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .welcome {
+        font-size: 16px !important;
+        margin-bottom: 10px;
+        text-align: center !important;
+        text-align:center;
+    }
+
+    .form-group {
+        margin-bottom: 8px;
+    }
+
+        .form-group label {
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .form-group input {
+            padding: 8px 35px;
+            font-size: 14px;
+            border-radius: 8px;
+        }
+
+    .input-icon {
+        font-size: 14px;
+        left: 10px;
+        top: 65%;
+    }
+
+    .toggle-eye {
+        font-size: 14px;
+        right: 10px;
+        top: 65%;
+    }
+
+    .sign-in-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .footer-text {
+        font-size: 16px !important;
+        margin-top: 5px;
+        text-align: center !important;
+    }
+
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .footer-text {
+        font-size: 16px !important;
+        text-align: center !important;
+    }
+
+
+    .logo {
+        margin-top: 17px !important;
+    }
+
+   
+}
+
+

@@ -13,7 +13,7 @@ builder.Services.AddAuthorizationCore();
 
 builder.Services.AddScoped<AuthenticationStateProvider,CustAuthStateProvider>();
 builder.Services.AddScoped<IDataFlow ,DataFlow>();
-builder.Services.AddScoped<LoadingService>();
+builder.Services.AddSingleton<LoadingService>();
 
 var app = builder.Build();
 

@@ -6,8 +6,8 @@
 
         protected override void OnInitialized()
         {
-            Loader.OnShow += () => { Visible = true; StateHasChanged(); };
-            Loader.OnHide += () => { Visible = false; StateHasChanged(); };
+            Loader.OnShow += () => { Visible = true; InvokeAsync(StateHasChanged); };
+            Loader.OnHide += () => { Visible = false; InvokeAsync(StateHasChanged); };
         }
     }
 }

@@ -38,14 +38,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/NotepadMain.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOb3RlcGFkTWFpbi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Projects/SkillTracker/SkillTrackerFront/Components/Pages/Sidebar.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTaWRlYmFyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Projects/SkillTracker/SkillTrackerFront/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

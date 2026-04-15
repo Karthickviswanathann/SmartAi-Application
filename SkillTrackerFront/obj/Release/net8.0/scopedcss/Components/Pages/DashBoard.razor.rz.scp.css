@@ -417,9 +417,9 @@ body[b-zzg0y1477c] {
 
 
 /*responsive*/
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-    .login-main-con[b-zzg0y1477c]{
+    .login-main-con[b-zzg0y1477c] {
         width: 100% !important;
         height: 80vh !important;
         display: flex;
@@ -436,7 +436,7 @@ body[b-zzg0y1477c] {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         text-align: center;
     }
- 
+
 
     .main-content[b-zzg0y1477c] {
         flex: 1;
@@ -531,7 +531,7 @@ body[b-zzg0y1477c] {
 
 
 
-   
+
     .search-box input[b-zzg0y1477c] {
         width: 100%;
         padding: 3px 20px !important;
@@ -541,10 +541,11 @@ body[b-zzg0y1477c] {
         font-size: 0.8rem !important;
     }
 
-    .top-btn-con[b-zzg0y1477c]{
-        display:flex !important; 
-        padding-top:10px
+    .top-btn-con[b-zzg0y1477c] {
+        display: flex !important;
+        padding-top: 10px
     }
+
     .search-box[b-zzg0y1477c] {
         padding: 6px 5px 6px 5px !important;
         width: 66% !important;
@@ -566,7 +567,7 @@ body[b-zzg0y1477c] {
         font-size: 8px !important;
     }
 
-    .select-Input[b-zzg0y1477c]{
+    .select-Input[b-zzg0y1477c] {
         width: 100%;
         padding: 5px 20px !important;
         border: 2px solid var(--accent-color);
@@ -575,15 +576,15 @@ body[b-zzg0y1477c] {
         font-size: 0.95rem;
         outline: var(--accent-color);
     }
+
     .signout-btn[b-zzg0y1477c] {
         padding-top: 25px !important;
     }
 
-    .logo[b-zzg0y1477c]{
+    .logo[b-zzg0y1477c] {
         display: flex;
         align-items: center;
-        justify-content:center;
-      
+        justify-content: center;
     }
 
     .search-box i[b-zzg0y1477c] {
@@ -594,13 +595,13 @@ body[b-zzg0y1477c] {
         color: var(--accent-color);
     }
 
-    .delete-icon[b-zzg0y1477c]{
+    .delete-icon[b-zzg0y1477c] {
         color: var(--accent-color) !important;
-        font-size:12px;
+        font-size: 12px;
     }
 }
 
-@media (min-width: 600px) and (max-width: 900px) {
+@media (min-width: 700px) and (max-width: 900px) {
     .sidebar[b-zzg0y1477c] {
         width: 150px;
     }

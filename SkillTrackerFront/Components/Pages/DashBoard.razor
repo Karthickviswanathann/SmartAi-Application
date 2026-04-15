@@ -56,7 +56,11 @@
                             </div>
 
                         </div>
-                        <div class="note-preview">@note.NotesText</div>
+                        <div class="note-preview">
+                            @(note.NotesText != null && note.NotesText.Length > 30
+                            ? note.NotesText.Substring(0, 30) + "..."
+                            : note.NotesText)
+                        </div>
                     </div>
                 }
             }
@@ -148,13 +152,23 @@
             <div class="top-right">
                 <div class="note-header">
                     <div class="note-actions">
-                        <span class="icon-btn"  @onclick="TogglePin">
+                        <button class="icon-btn" @onclick="TogglePin">
                             <i class="fa-solid @(isPinned ? "fa-thumbtack" : "fa-thumbtack-slash")"></i>
-                        </span>
-
+                        </button>
+                     
                         <button @onclick="CopyNoteText" class="icon-btn">
                             <i class="fa-solid fa-copy"></i>
                         </button>
+
+                        <button @onclick="CopyNoteText" class="icon-btn">
+                            <i class="fa-solid @(isArchieve ? "fa-arrow-rotate-left" : "fa-box-open")"></i>
+                        </button>
+
+                        <button @onclick="OpenDownloadModel" class="icon-btn">
+                            <i class="fa-solid fa-download"></i>
+                        </button>
+
+
                     </div>
 
 
@@ -198,8 +212,21 @@
                 </div>
             }
 
+
+
     </div>
 </div>
+
+@if (isOpenDownMod)
+{
+    <div class="downModel-con">
+        <div class="downModelCard">
+            <span><i class="fa-solid fa-file-arrow-down"></i>Export as .Excel</span>
+            <span><i class="fa-solid fa-file-lines"></i>Export as .pdf</span>
+        </div>
+    </div>
+  
+}
 
 
 @code {

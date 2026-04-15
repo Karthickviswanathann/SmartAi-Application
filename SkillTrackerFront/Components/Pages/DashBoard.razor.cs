@@ -21,6 +21,8 @@ namespace SkillTrackerFront.Components.Pages
         private string selectedAccent = "#3b82f6";
         private bool isDarkMode;
         private bool isPinned;
+        private bool isArchieve;
+        private bool isOpenDownMod;
         private string accentColor;
         private string Element;
         private string theme;
@@ -219,6 +221,11 @@ namespace SkillTrackerFront.Components.Pages
         private async Task CopyNoteText()
         {
             await JS.InvokeVoidAsync("copyToClipboard", selectedNote.NotesText);
+        }
+
+        private async Task OpenDownloadModel()
+        {
+            isOpenDownMod = !isOpenDownMod;
         }
 
         public async Task SaveNotes()

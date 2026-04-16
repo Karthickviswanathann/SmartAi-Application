@@ -419,24 +419,92 @@
 
 .downModel-con{
     position:absolute;
-    top:10%;
+    top:8%;
+    right:2%;
     z-index:999;
 }
 
-.downModelCard{
-    background:#fff;
-    height:auto;
-    width:200px;
+.downModelCard {
+    background: #fff;
+    height: auto;
+    width: 200px;
+    border: 1px solid color-mix(in srgb, var(--accent-color) 30%, white);
+    border-radius:10px;
 }
-    .downModelCard > span:hover {
-        background: color-mix(in srgb, var(--accent-color) 30%, white);
-        color:#fff;
-    }
 
-    .downModelCard > span::selection {
+    .downModelCard > p{
+        padding:5px 10px;
+        cursor:pointer;
+        margin:0px !important;
+
+    }
+        
+        .downModelCard > p:hover {
+            background: color-mix(in srgb, var(--accent-color) 30%, white);
+            color: #fff;
+        }
+
+    .downModelCard > p::selection {
         background: color-mix(in srgb, var(--accent-color) 30%, white);
         color: #fff;
     }
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.deleteBtns-Con > .btn-delete {
+    border: 1px solid color-mix(in srgb, var(--accent-color) 30%, white);
+    border-radius: 10px;
+    padding:0px 20px;
+}
+
+.deleteBtns-Con > .btn-cancel {
+    border: 1px solid color-mix(in srgb, var(--accent-color) 30%, white);
+    border-radius: 10px;
+    padding: 0px 20px;
+}
+    .modal-box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 20%;
+    }
+
+.btn-delete {
+    background: red;
+    color: white;
+    margin-left: 10px;
+}
+
+.btn-cancel {
+    background: gray;
+    color: white;
+}
+
+.icon-btn {
+    background-color: transparent !important;
+    padding: 5px 10px !important;
+    
+}
+
+.icon-btn:hover {
+    background: color-mix(in srgb, var(--bg-color) 80%, #ccc) !important;
+    padding: 5px 10px !important;
+    color: var(--accent-color);
+    border-radius: 10px;
+}
     /*responsive*/
     @media (max-width: 700px) {
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SkillTrackerFront")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5e8656d22253ef0348f23f9b5530167ae4fe29a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b235c0568a2e7e1b27040523391bfe8509cd81a9")]
 [assembly: System.Reflection.AssemblyProductAttribute("SkillTrackerFront")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SkillTrackerFront")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -22,3 +22,20 @@ window.copyToClipboard = (text) => {
         .then(() => console.log("Copied!"))
         .catch(err => console.error("Copy failed", err));
 };
+
+
+function downloadFile(filename, content) {
+        const blob = new Blob([content], { type: "text/plain" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        link.click();
+}
+
+async function downloadPDF(content) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.text(content, 10, 10);
+    doc.save("note.pdf");
+}

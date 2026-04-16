@@ -52,7 +52,7 @@
                             </div>
                             <div>
                                 <i class="fa-solid fa-trash delete-icon" style="color:transparent"
-                                   @onclick="@(e => DeleteNote(note, e))"></i>
+                                   @onclick="@(e => ConfirmDeleteNote(note, e))"></i>
                             </div>
 
                         </div>
@@ -124,7 +124,7 @@
 
             <div class="setting-group">
                 <label>Size</label>
-                <select value="SelectedSize" class="select-Input" @onchange="ChangeFontSize">
+                <select value="@SelectedSize" class="select-Input" @onchange="ChangeFontSize">
                     @foreach (var font in AvailableFontSizes)
                     {
                         <option value="@font">@font</option>
@@ -152,19 +152,18 @@
             <div class="top-right">
                 <div class="note-header">
                     <div class="note-actions">
-                        <button class="icon-btn" @onclick="TogglePin">
+                        <button class="icon-btn" @onclick="TogglePin" title="Pin/Unpin">
                             <i class="fa-solid @(isPinned ? "fa-thumbtack" : "fa-thumbtack-slash")"></i>
                         </button>
-                     
-                        <button @onclick="CopyNoteText" class="icon-btn">
+                        <button @onclick="CopyNoteText" class="icon-btn" title="Copy">
                             <i class="fa-solid fa-copy"></i>
                         </button>
 
-                        <button @onclick="CopyNoteText" class="icon-btn">
-                            <i class="fa-solid @(isArchieve ? "fa-arrow-rotate-left" : "fa-box-open")"></i>
+                        <button @onclick="Archeivenote" class="icon-btn" title="Archieve/Unarcheive">
+                            <i class="fa-solid @(isArchieve ? "fa-box-archive" : "fa-arrow-up")"></i>
                         </button>
 
-                        <button @onclick="OpenDownloadModel" class="icon-btn">
+                        <button @onclick="OpenDownloadModel" class="icon-btn" title="download">
                             <i class="fa-solid fa-download"></i>
                         </button>
 
@@ -221,11 +220,31 @@
 {
     <div class="downModel-con">
         <div class="downModelCard">
-            <span><i class="fa-solid fa-file-arrow-down"></i>Export as .Excel</span>
-            <span><i class="fa-solid fa-file-lines"></i>Export as .pdf</span>
+            <p @onclick="downloadNotesTXT"><i class="fa-solid fa-file-arrow-down" style="color:var(--accent-color)"></i>  Export as .txt</p>
+            <p @onclick="downloadNotesPDF"><i class="fa-solid fa-file-lines" style="color:var(--accent-color)"></i>  Export as .pdf</p>
         </div>
     </div>
   
+}
+
+@if (showDeleteModal)
+{
+    <div class="modal-overlay">
+        <div class="modal-box">
+            <h3>Delete Note</h3>
+            <p>Are you sure you want to delete this note?</p>
+
+           <div class="deleteBtns-Con">
+                <button class="btn-cancel" @onclick="() => showDeleteModal = false">
+                    Cancel
+                </button>
+
+                <button class="btn-delete" @onclick="DeleteNote">
+                    Ok
+                </button>
+           </div>
+        </div>
+    </div>
 }
 
 

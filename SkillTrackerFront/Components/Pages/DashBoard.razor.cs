@@ -28,6 +28,10 @@ namespace SkillTrackerFront.Components.Pages
         private string theme;
         private string token;
         private string countOfWords;
+        bool showDeleteModal = false;
+        Note deletedNotes;
+
+        List<AddNotesDto> Lz_GetNotes;
 
         private System.Timers.Timer? autosaveTimer;
 
@@ -49,6 +53,7 @@ namespace SkillTrackerFront.Components.Pages
         private List<string> accentColors = new() { "#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899", "#06b6d4" };
 
         private List<Note> notes = new List<Note>();
+        private List<Note> Lz_notes = new List<Note>();
 
         public class BehaviourDto
         {
@@ -94,12 +99,12 @@ namespace SkillTrackerFront.Components.Pages
                     await JS.InvokeVoidAsync("applyAccentColor", eleme);
                 }
 
-
+                
                 var res2 = await Flow.GetNotes(token);
                 if (res2.Data != null)
                 {
-                    var resNotes = JsonConvert.DeserializeObject<List<AddNotesDto>>(res2.Data.ToString());
-                    foreach (var note in resNotes) {
+                    Lz_GetNotes = JsonConvert.DeserializeObject<List<AddNotesDto>>(res2.Data.ToString());
+                    foreach (var note in Lz_GetNotes) {
 
                         notes.Add(new Note{
                             Id=note.Id,
@@ -108,7 +113,13 @@ namespace SkillTrackerFront.Components.Pages
                         });
                     
                     }
+
+                    Lz_notes=notes.Where(x =>x.IsUrcheive == false).ToList();
                 }
+
+                await JS.InvokeVoidAsync("sessionStorage.setItem", "notes", Lz_notes);
+
+                await JS.InvokeAsync<string>("sessionStorage.getItem", "notes");
 
                 StateHasChanged();
 
@@ -118,7 +129,7 @@ namespace SkillTrackerFront.Components.Pages
                 ShowMsg("Error", ex.Message, 3000);
             }
 
-
+            isPinned = false;
         }
 
 
@@ -211,21 +222,54 @@ namespace SkillTrackerFront.Components.Pages
 
             isPinned = !isPinned;
 
-            notes = notes
+            Lz_notes = notes
                 .OrderByDescending(n => n.IsPinned)
                 .ToList();
-
+            SaveNotesSession();
             StateHasChanged();
+        }
+
+        private async Task SaveNotesSession()
+        {
+            var json = System.Text.Json.JsonSerializer.Serialize(Lz_notes);
+            await JS.InvokeVoidAsync("sessionStorage.setItem", "notes", json);
         }
 
         private async Task CopyNoteText()
         {
-            await JS.InvokeVoidAsync("copyToClipboard", selectedNote.NotesText);
+            if (selectedNote.NotesText != null)
+            {
+                await JS.InvokeVoidAsync("copyToClipboard", selectedNote.NotesText);
+            }
         }
+        private async Task downloadNotesTXT() {
+            if(selectedNote != null)
+            {
+                await JS.InvokeVoidAsync("downloadFile", "note.txt", selectedNote.NotesText);
+            }
+           
+        }
+        private async Task downloadNotesPDF() {
+            if (selectedNote != null)
+            {
+                await JS.InvokeVoidAsync("downloadPDF", selectedNote.NotesText);
+            }
 
+        }
+        private async Task Archeivenote()
+        {
+            if (selectedNote != null) 
+            {
+                selectedNote.IsUrcheive = true;
+                isArchieve = !isArchieve;
+                StateHasChanged();
+                OnInitializedAsync();
+            }
+        }
         private async Task OpenDownloadModel()
         {
             isOpenDownMod = !isOpenDownMod;
+            
         }
 
         public async Task SaveNotes()
@@ -258,16 +302,33 @@ namespace SkillTrackerFront.Components.Pages
         }
 
 
-        public async Task DeleteNote(Note note, MouseEventArgs e)
+
+
+        public void ConfirmDeleteNote(Note note, MouseEventArgs e)
+        {
+            deletedNotes = null;
+            showDeleteModal = true;
+
+            if (deletedNotes == null) {
+                deletedNotes = note;
+            }
+
+        }
+
+        public async Task DeleteNote()
         {
             //await JS.InvokeVoidAsync("stopEvent", e.ClientX, e.ClientY);
 
-            notes.Remove(note);
+            notes.Remove(deletedNotes);
 
-            if (selectedNote == note)
+            if (selectedNote == deletedNotes)
                 selectedNote = null;
 
-            var res = await Flow.DeleteNotes(note.Id,token);
+            if (deletedNotes.Id != 0)
+            {
+                var res = await Flow.DeleteNotes(deletedNotes.Id, token);
+            }
+            showDeleteModal = false;
 
             StateHasChanged();
             OnInitializedAsync();
@@ -279,8 +340,9 @@ namespace SkillTrackerFront.Components.Pages
             public string Title { get; set; } = "";
             public string NotesText { get; set; } = "";
             public string? Workspace { get; set; }
-            public bool IsSelected { get; set; }
-            public bool IsPinned { get; set; }
+            public bool IsSelected { get; set; } = false;
+            public bool? IsPinned { get; set; }
+            public bool? IsUrcheive { get; set; }
         }
 
 
@@ -289,17 +351,33 @@ namespace SkillTrackerFront.Components.Pages
 
         private void CreateNewNote()
         {
-            var newNote = new Note
+            try
             {
-                Title = "Untitled Note",
-                NotesText = ""
-            };
+                var newNote = new Note
+                {
+                    Title = "Untitled Note",
+                    NotesText = ""
+                };      
+                var isId = notes.FirstOrDefault(x => x.Id == newNote.Id);
 
-            notes.ForEach(n => n.IsSelected = false);
-            newNote.IsSelected = true;
+                if (isId==null) {
+                    notes.Add(newNote);
+                    selectedNote = newNote;
+                }
+                else
+                {
+                    return;
+                }
+         
+            }
+            catch (Exception ex)
+            {
 
-            notes.Add(newNote);
-            selectedNote = newNote;
+                ShowMsg("Error", ex.Message, 3000);
+                return;
+            }
+
+           
         }
 
         private void SelectNote(Note note)

@@ -1344,24 +1344,92 @@ body[b-zzg0y1477c] {
 
 .downModel-con[b-zzg0y1477c]{
     position:absolute;
-    top:10%;
+    top:8%;
+    right:2%;
     z-index:999;
 }
 
-.downModelCard[b-zzg0y1477c]{
-    background:#fff;
-    height:auto;
-    width:200px;
+.downModelCard[b-zzg0y1477c] {
+    background: #fff;
+    height: auto;
+    width: 200px;
+    border: 1px solid color-mix(in srgb, var(--accent-color) 30%, white);
+    border-radius:10px;
 }
-    .downModelCard > span:hover[b-zzg0y1477c] {
-        background: color-mix(in srgb, var(--accent-color) 30%, white);
-        color:#fff;
-    }
 
-    .downModelCard > span[b-zzg0y1477c]::selection {
+    .downModelCard > p[b-zzg0y1477c]{
+        padding:5px 10px;
+        cursor:pointer;
+        margin:0px !important;
+
+    }
+        
+        .downModelCard > p:hover[b-zzg0y1477c] {
+            background: color-mix(in srgb, var(--accent-color) 30%, white);
+            color: #fff;
+        }
+
+    .downModelCard > p[b-zzg0y1477c]::selection {
         background: color-mix(in srgb, var(--accent-color) 30%, white);
         color: #fff;
     }
+
+
+.modal-overlay[b-zzg0y1477c] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.deleteBtns-Con > .btn-delete[b-zzg0y1477c] {
+    border: 1px solid color-mix(in srgb, var(--accent-color) 30%, white);
+    border-radius: 10px;
+    padding:0px 20px;
+}
+
+.deleteBtns-Con > .btn-cancel[b-zzg0y1477c] {
+    border: 1px solid color-mix(in srgb, var(--accent-color) 30%, white);
+    border-radius: 10px;
+    padding: 0px 20px;
+}
+    .modal-box[b-zzg0y1477c] {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 20%;
+    }
+
+.btn-delete[b-zzg0y1477c] {
+    background: red;
+    color: white;
+    margin-left: 10px;
+}
+
+.btn-cancel[b-zzg0y1477c] {
+    background: gray;
+    color: white;
+}
+
+.icon-btn[b-zzg0y1477c] {
+    background-color: transparent !important;
+    padding: 5px 10px !important;
+    
+}
+
+.icon-btn:hover[b-zzg0y1477c] {
+    background: color-mix(in srgb, var(--bg-color) 80%, #ccc) !important;
+    padding: 5px 10px !important;
+    color: var(--accent-color);
+    border-radius: 10px;
+}
     /*responsive*/
     @media (max-width: 700px) {
 

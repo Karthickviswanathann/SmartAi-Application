@@ -11,6 +11,6 @@ namespace SkillTrackerFront.Services.Interface
         Task<RespModel> PostNotesActivity(string? Pinned, string? Urcheive, int noteid, string token);
         Task<RespModel> DeleteNotes(int id, string token);
         Task<RespModel> GetBehaviour(string token);
-        Task<RespModel> GetNotes(string token);
+        Task<RespModel1> GetNotes(string token);
     }
 }

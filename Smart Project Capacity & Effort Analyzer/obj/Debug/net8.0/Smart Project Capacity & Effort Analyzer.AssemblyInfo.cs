@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Smart Project Capacity & Effort Analyzer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a768d72f4ae3182eaad885ab75a8f568bcff9f78")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9772953afd04c1a0179a4433cbc970339035e28e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Smart Project Capacity & Effort Analyzer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Smart Project Capacity & Effort Analyzer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

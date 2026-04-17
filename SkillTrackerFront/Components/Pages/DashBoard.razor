@@ -31,6 +31,10 @@
             <button class="new-note-btn" @onclick="CreateNewNote">
                 <span class="plus">+</span> New Note
             </button>
+            <button class="new-note-btn" @onclick="GetUrcheiveNotes">
+                <i class="fa-solid fa-arrow-up"></i>
+                Urcheive Notes
+            </button>
 
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -43,14 +47,16 @@
             {
                 foreach (var note in notes)
                 {
-                    if (note.IsPinned==true)
-                    {
-                     <i class="fa-solid fa-thumbtack"></i>
-
-                    }
+                  
 
                     <div class="note-item @(note.IsSelected ? "selected" : "")"
                          @onclick="() => SelectNote(note)">
+
+                        @if (note.IsPinned==true)
+                        {
+                            <i class="fa-solid fa-thumbtack" ></i>
+
+                        }
 
                         <div style="display:flex;justify-content:space-between">
                             <div class="note-title">
@@ -159,14 +165,14 @@
                 <div class="note-header">
                     <div class="note-actions">
                         <button class="icon-btn" @onclick="TogglePin" title="Pin/Unpin">
-                            <i class="fa-solid @(isPinned ? "fa-thumbtack-slash":"fa-thumbtack")"></i>
+                            <i class="fa-solid @(selectedNote?.IsPinned==true ? "fa-thumbtack-slash" : "fa-thumbtack")"></i>
                         </button>
                         <button @onclick="CopyNoteText" class="icon-btn" title="Copy">
                             <i class="fa-solid fa-copy"></i>
                         </button>
 
-                        <button @onclick="Archeivenote" class="icon-btn" title="Archieve/Unarcheive">
-                            <i class="fa-solid @(isArchieve ? "fa-box-archive" : "fa-arrow-up")"></i>
+                        <button @onclick="UrcheiveNotes" class="icon-btn" title="Archieve/Unarcheive">
+                            <i class="fa-solid @(selectedNote?.IsUrcheive==true ? "fa-box-archive" : "fa-arrow-up")"></i>
                         </button>
 
                         <button @onclick="OpenDownloadModel" class="icon-btn" title="download">

@@ -55,10 +55,10 @@ D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\staticwebassets.buil
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\staticwebassets.development.json
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\swae.build.ex.cache
+D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\SkillTra.E7154D6B.Up2Date
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\SkillTrackerFront.dll
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\refint\SkillTrackerFront.dll
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\SkillTrackerFront.pdb
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\SkillTrackerFront.genruntimeconfig.cache
 D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\ref\SkillTrackerFront.dll
-D:\Projects\SkillTracker\SkillTrackerFront\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

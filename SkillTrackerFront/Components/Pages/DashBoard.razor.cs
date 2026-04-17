@@ -4,6 +4,7 @@ using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using SkillTrackerFront.Components.DtoModels;
 using SkillTrackerFront.Services;
+using System.Runtime.CompilerServices;
 using static System.Net.WebRequestMethods;
 
 namespace SkillTrackerFront.Components.Pages
@@ -54,6 +55,7 @@ namespace SkillTrackerFront.Components.Pages
 
         private List<Note> notes = new List<Note>();
         private List<Note> Lz_notes = new List<Note>();
+        private List<Note> Lz_notesData = new List<Note>();
 
         public class BehaviourDto
         {
@@ -101,9 +103,9 @@ namespace SkillTrackerFront.Components.Pages
 
                 
                 var res2 = await Flow.GetNotes(token);
-                if (res2.Data != null)
+                if (res2.data != null)
                 {
-                    Lz_GetNotes = JsonConvert.DeserializeObject<List<NotesActivityDto>>(res2.Data.ToString());
+                    Lz_GetNotes = res2.data.ToList();
                     foreach (var note in Lz_GetNotes) {
 
                         notes.Add(new Note{
@@ -125,9 +127,11 @@ namespace SkillTrackerFront.Components.Pages
 
                 if (!string.IsNullOrEmpty(getJson))
                 {
-                    var dJson = JsonConvert.DeserializeObject<List<Note>>(getJson);
-                    Lz_notes = dJson.Where(x => x.IsUrcheive == false).ToList();
-                    StateHasChanged();
+                    Lz_notesData = JsonConvert.DeserializeObject<List<Note>>(getJson);
+                    Lz_notes = Lz_notesData
+       .Where(x => x.IsUrcheive == false)   // filter first
+       .OrderByDescending(n => n.IsPinned)  // then sort
+       .ToList();
 
                 }
 
@@ -230,19 +234,17 @@ namespace SkillTrackerFront.Components.Pages
             {
                 if (selectedNote == null)
                     return;
-                isPinned = !isPinned;
+                selectedNote.IsPinned = !selectedNote.IsPinned;
 
                 if (selectedNote.Id != 0)
                 {
-                    var res = await Flow.PostNotesActivity(Convert.ToString(isPinned),"",selectedNote.Id,token);
+                    var res = await Flow.PostNotesActivity(Convert.ToString(selectedNote.IsPinned),"",selectedNote.Id,token);
 
                     if (res.respCode == "200")
                     {
-                        OnInitialized();
-                        Lz_notes
-                       .OrderByDescending(n => n.IsPinned)
-                       .ToList();
                         StateHasChanged();
+                        await OnInitializedAsync();
+
                     }
                 }
             }
@@ -253,7 +255,45 @@ namespace SkillTrackerFront.Components.Pages
             
         }
 
-      
+
+        private async void UrcheiveNotes()
+        {
+            try
+            {
+                if (selectedNote == null)
+                    return;
+                selectedNote.IsUrcheive = !selectedNote.IsUrcheive;
+
+                if (selectedNote.Id != 0)
+                {
+                    var res = await Flow.PostNotesActivity("",Convert.ToString(selectedNote.IsUrcheive),selectedNote.Id, token);
+
+                    StateHasChanged();
+                    await OnInitializedAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowMsg("Error", ex.Message, 3000);
+            }
+
+        }
+
+        private async Task GetUrcheiveNotes()
+        {
+            try
+            {
+                Lz_notes = Lz_notesData
+                .Where(x => x.IsUrcheive == false)   // filter first
+                .OrderByDescending(n => n.IsPinned)  // then sort
+                .ToList();
+            }
+            catch (Exception ex)
+            {
+                ShowMsg("Error", ex.Message, 3000);
+            }
+        }
+
 
         private async Task CopyNoteText()
         {
@@ -276,16 +316,7 @@ namespace SkillTrackerFront.Components.Pages
             }
 
         }
-        private async Task Archeivenote()
-        {
-            if (selectedNote != null) 
-            {
-                selectedNote.IsUrcheive = true;
-                isArchieve = !isArchieve;
-                StateHasChanged();
-                OnInitializedAsync();
-            }
-        }
+    
         private async Task OpenDownloadModel()
         {
             isOpenDownMod = !isOpenDownMod;

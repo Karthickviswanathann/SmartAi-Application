@@ -161,9 +161,8 @@ namespace SkillTrackerFront.Services
         }
 
 
-        public async Task<RespModel> GetNotes(string token)
+        public async Task<RespModel1> GetNotes(string token)
         {
-            RespModel respModel = new RespModel();
 
             var client = new HttpClient();
 
@@ -172,9 +171,9 @@ namespace SkillTrackerFront.Services
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var result = await client.GetAsync(url);
             var respoCnt = await result.Content.ReadAsStringAsync();
-            respModel = JsonConvert.DeserializeObject<RespModel>(respoCnt);
+            var resp = JsonConvert.DeserializeObject<RespModel1>(respoCnt);
 
-            return respModel;
+            return resp;
         }
 
     }

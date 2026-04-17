@@ -1,0 +1,186 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\SkillTracker\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\components\\pages\\dashboard.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\components\\pages\\dashboard.razor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\services\\dataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\services\\dataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\components\\dtomodels\\respmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\components\\dtomodels\\respmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D6FDFF7-27BB-C5EB-A98A-E178940DEEB8}|Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer.csproj|d:\\projects\\skilltracker\\smart project capacity \u0026 effort analyzer\\services\\dataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D6FDFF7-27BB-C5EB-A98A-E178940DEEB8}|Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer.csproj|solutionrelative:smart project capacity \u0026 effort analyzer\\services\\dataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D6FDFF7-27BB-C5EB-A98A-E178940DEEB8}|Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer.csproj|d:\\projects\\skilltracker\\smart project capacity \u0026 effort analyzer\\controllers\\maincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D6FDFF7-27BB-C5EB-A98A-E178940DEEB8}|Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer.csproj|solutionrelative:smart project capacity \u0026 effort analyzer\\controllers\\maincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\services\\interface\\idataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\services\\interface\\idataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D6FDFF7-27BB-C5EB-A98A-E178940DEEB8}|Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer.csproj|d:\\projects\\skilltracker\\smart project capacity \u0026 effort analyzer\\models\\apidtos\\respmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D6FDFF7-27BB-C5EB-A98A-E178940DEEB8}|Smart Project Capacity \u0026 Effort Analyzer\\Smart Project Capacity \u0026 Effort Analyzer.csproj|solutionrelative:smart project capacity \u0026 effort analyzer\\models\\apidtos\\respmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|d:\\projects\\skilltracker\\skilltrackerfront\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E332C80B-577B-4696-9065-2DAE22B7720A}|SkillTrackerFront\\SkillTrackerFront.csproj|solutionrelative:skilltrackerfront\\components\\pages\\dashboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 15,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataFlow.cs",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\Smart Project Capacity \u0026 Effort Analyzer\\Services\\DataFlow.cs",
+              "RelativeDocumentMoniker": "Smart Project Capacity \u0026 Effort Analyzer\\Services\\DataFlow.cs",
+              "ToolTip": "D:\\Projects\\SkillTracker\\Smart Project Capacity \u0026 Effort Analyzer\\Services\\DataFlow.cs",
+              "RelativeToolTip": "Smart Project Capacity \u0026 Effort Analyzer\\Services\\DataFlow.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAuwJEAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T16:21:54.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IDataFlow.cs",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Services\\Interface\\IDataFlow.cs",
+              "RelativeDocumentMoniker": "SkillTrackerFront\\Services\\Interface\\IDataFlow.cs",
+              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Services\\Interface\\IDataFlow.cs",
+              "RelativeToolTip": "SkillTrackerFront\\Services\\Interface\\IDataFlow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T16:12:05.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RespModel.cs",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\DtoModels\\RespModel.cs",
+              "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\DtoModels\\RespModel.cs",
+              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\DtoModels\\RespModel.cs",
+              "RelativeToolTip": "SkillTrackerFront\\Components\\DtoModels\\RespModel.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAIwA8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T16:09:07.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RespModel.cs",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\Smart Project Capacity \u0026 Effort Analyzer\\Models\\ApiDtos\\RespModel.cs",
+              "RelativeDocumentMoniker": "Smart Project Capacity \u0026 Effort Analyzer\\Models\\ApiDtos\\RespModel.cs",
+              "ToolTip": "D:\\Projects\\SkillTracker\\Smart Project Capacity \u0026 Effort Analyzer\\Models\\ApiDtos\\RespModel.cs",
+              "RelativeToolTip": "Smart Project Capacity \u0026 Effort Analyzer\\Models\\ApiDtos\\RespModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T16:08:36.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainController.cs",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\Smart Project Capacity \u0026 Effort Analyzer\\Controllers\\MainController.cs",
+              "RelativeDocumentMoniker": "Smart Project Capacity \u0026 Effort Analyzer\\Controllers\\MainController.cs",
+              "ToolTip": "D:\\Projects\\SkillTracker\\Smart Project Capacity \u0026 Effort Analyzer\\Controllers\\MainController.cs",
+              "RelativeToolTip": "Smart Project Capacity \u0026 Effort Analyzer\\Controllers\\MainController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAmwGcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T16:08:10.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataFlow.cs",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Services\\DataFlow.cs",
+              "RelativeDocumentMoniker": "SkillTrackerFront\\Services\\DataFlow.cs",
+              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Services\\DataFlow.cs",
+              "RelativeToolTip": "SkillTrackerFront\\Services\\DataFlow.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAmwLIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T16:03:42.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DashBoard.razor",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
+              "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
+              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
+              "RelativeToolTip": "SkillTrackerFront\\Components\\Pages\\DashBoard.razor",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAAAK0AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-17T13:13:42.779Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashBoard.razor.cs",
+              "DocumentMoniker": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor.cs",
+              "RelativeDocumentMoniker": "SkillTrackerFront\\Components\\Pages\\DashBoard.razor.cs",
+              "ToolTip": "D:\\Projects\\SkillTracker\\SkillTrackerFront\\Components\\Pages\\DashBoard.razor.cs",
+              "RelativeToolTip": "SkillTrackerFront\\Components\\Pages\\DashBoard.razor.cs",
+              "ViewState": "AgIAABcBAAAAAAAAAAAcwCgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T13:12:22.551Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

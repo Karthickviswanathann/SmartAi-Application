@@ -138,7 +138,7 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
             var token = decryptedToken(context);
 
             var existUserDetail = _dbContext.NotesMasters.Where(x => x.UserId == Convert.ToInt16(token[0]));
-            var data = await existUserDetail.OrderByDescending(x => x.CreatedDate).ToListAsync();
+            var data = existUserDetail.OrderByDescending(x => x.CreatedDate).ToList();
 
             respo.respCode = "200";
             respo.respDesc = "Get User Behaviour Successfully";

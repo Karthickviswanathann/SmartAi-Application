@@ -8,6 +8,7 @@ using Smart_Project_Capacity___Effort_Analyzer.Context;
 using Smart_Project_Capacity___Effort_Analyzer.Models;
 using Smart_Project_Capacity___Effort_Analyzer.Models.ApiDtos;
 using System.IdentityModel.Tokens.Jwt;
+using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -190,6 +191,30 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
 
             respo.respCode = "200";
             respo.respDesc = "User  Behaviour Updated Successfully";
+            respo.respType = "Success";
+            return respo;
+
+
+        }
+
+
+        public async Task<RespModel> PostNotesActivity(string? IsPinned, string? IsUrceive,int Id, HttpContext context)
+        {
+
+            RespModel respo = new RespModel();
+
+
+            var token = decryptedToken(context);
+
+            var existUserDetail = _dbContext.NotesMasters.Where(x => x.UserId == Convert.ToInt16(token[0]) && x.Id == Id).FirstOrDefault();
+
+            existUserDetail.IsPinned = IsPinned == "" ? false : Convert.ToBoolean(IsPinned);
+            existUserDetail.IsUrcheive = IsUrceive == "" ? false : Convert.ToBoolean(IsUrceive);
+ 
+            await _dbContext.SaveChangesAsync(); 
+
+            respo.respCode = "200";
+            respo.respDesc = "Notes Activity Updated Successfully";
             respo.respType = "Success";
             return respo;
 

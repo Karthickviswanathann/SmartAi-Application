@@ -81,6 +81,22 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Controllers
         }
 
 
+        
+        [HttpPost("UpdateNotesActivity")]
+
+        public async Task<IActionResult> UpdateNotesActivity(string? Pinned, string? Urcheive,int noteId)
+        {
+            var res = await _dataFlow.PostNotesActivity(Pinned, Urcheive, noteId, HttpContext);
+
+            if (res.respCode != "200")
+            {
+                return BadRequest(res);
+            }
+
+            return Ok(res);
+        }
+
+
         [HttpGet("GetNotes")]
 
         public async Task<IActionResult> GetNotes()

@@ -7,6 +7,8 @@
         public string? Title { get; set; }
         public string? NotesText { get; set; }
         public string? Workspace { get; set; }
+        public bool IsPinned  { get; set; }
+        public bool IsUrcheive { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public UserMaster User { get; set; }

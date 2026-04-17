@@ -71,9 +71,27 @@ namespace SkillTrackerFront.Services
 
             var appurl = _configuration.GetRequiredSection("ApiUrl").Value;
 
-        http://localhost:5237/api/Main/UpdateColors?themeColor=True&ElementColor=%23ff0f0f
-
             var url = appurl + $"UpdateColors?themeColor={ThemeColor}&ElementColor={ElementColor}";
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var result = await client.PostAsync(url, null);
+
+            var respoCnt = await result.Content.ReadAsStringAsync();
+
+            respModel = JsonConvert.DeserializeObject<RespModel>(respoCnt);
+
+            return respModel;
+        }
+
+        public async Task<RespModel> PostNotesActivity(string? Pinned, string? Urcheive, int noteid, string token)
+        {
+            RespModel respModel = new RespModel();
+
+            var client = new HttpClient();
+
+            var appurl = _configuration.GetRequiredSection("ApiUrl").Value;
+
+            var url = appurl + $"UpdateNotesActivity?Pinned={Pinned}&Urcheive={Urcheive}&noteId={noteid}";
 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var result = await client.PostAsync(url, null);

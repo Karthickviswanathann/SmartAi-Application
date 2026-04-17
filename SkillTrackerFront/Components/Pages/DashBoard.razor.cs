@@ -31,7 +31,7 @@ namespace SkillTrackerFront.Components.Pages
         bool showDeleteModal = false;
         Note deletedNotes;
 
-        List<AddNotesDto> Lz_GetNotes;
+        List<NotesActivityDto> Lz_GetNotes;
 
         private System.Timers.Timer? autosaveTimer;
 
@@ -103,25 +103,34 @@ namespace SkillTrackerFront.Components.Pages
                 var res2 = await Flow.GetNotes(token);
                 if (res2.Data != null)
                 {
-                    Lz_GetNotes = JsonConvert.DeserializeObject<List<AddNotesDto>>(res2.Data.ToString());
+                    Lz_GetNotes = JsonConvert.DeserializeObject<List<NotesActivityDto>>(res2.Data.ToString());
                     foreach (var note in Lz_GetNotes) {
 
                         notes.Add(new Note{
                             Id=note.Id,
                             Title=note.Title,
-                            NotesText=note.NotesText
+                            NotesText=note.NotesText,
+                            IsPinned=note.isPinned,
+                            IsUrcheive=note.isUrcheive
                         });
                     
                     }
 
-                    Lz_notes=notes.Where(x =>x.IsUrcheive == false).ToList();
+                }
+                var json1 = JsonConvert.SerializeObject(notes.ToList());
+
+                await JS.InvokeVoidAsync("sessionStorage.setItem", "notes", json1);
+
+                var getJson=await JS.InvokeAsync<string>("sessionStorage.getItem", "notes");
+
+                if (!string.IsNullOrEmpty(getJson))
+                {
+                    var dJson = JsonConvert.DeserializeObject<List<Note>>(getJson);
+                    Lz_notes = dJson.Where(x => x.IsUrcheive == false).ToList();
+                    StateHasChanged();
+
                 }
 
-                await JS.InvokeVoidAsync("sessionStorage.setItem", "notes", Lz_notes);
-
-                await JS.InvokeAsync<string>("sessionStorage.getItem", "notes");
-
-                StateHasChanged();
 
             }
             catch (Exception ex)
@@ -215,25 +224,36 @@ namespace SkillTrackerFront.Components.Pages
         
         }
 
-        private void TogglePin()
+        private async void TogglePin()
         {
-            if (selectedNote == null)
-                return;
+            try
+            {
+                if (selectedNote == null)
+                    return;
+                isPinned = !isPinned;
 
-            isPinned = !isPinned;
+                if (selectedNote.Id != 0)
+                {
+                    var res = await Flow.PostNotesActivity(Convert.ToString(isPinned),"",selectedNote.Id,token);
 
-            Lz_notes = notes
-                .OrderByDescending(n => n.IsPinned)
-                .ToList();
-            SaveNotesSession();
-            StateHasChanged();
+                    if (res.respCode == "200")
+                    {
+                        OnInitialized();
+                        Lz_notes
+                       .OrderByDescending(n => n.IsPinned)
+                       .ToList();
+                        StateHasChanged();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowMsg("Error",ex.Message,3000);
+            }
+            
         }
 
-        private async Task SaveNotesSession()
-        {
-            var json = System.Text.Json.JsonSerializer.Serialize(Lz_notes);
-            await JS.InvokeVoidAsync("sessionStorage.setItem", "notes", json);
-        }
+      
 
         private async Task CopyNoteText()
         {

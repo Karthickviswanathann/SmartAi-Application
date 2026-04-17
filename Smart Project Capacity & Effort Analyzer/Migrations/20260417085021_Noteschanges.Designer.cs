@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Smart_Project_Capacity___Effort_Analyzer.Context;
 
@@ -11,9 +12,11 @@ using Smart_Project_Capacity___Effort_Analyzer.Context;
 namespace Smart_Project_Capacity___Effort_Analyzer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260417085021_Noteschanges")]
+    partial class Noteschanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +36,7 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Migrations
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsPinned")
+                    b.Property<bool>("IsPinnned")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsUrcheive")

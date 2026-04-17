@@ -107,6 +107,42 @@
         }
       }
     },
+    "/api/Main/UpdateNotesActivity": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "Pinned",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Urcheive",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "noteId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Main/GetNotes": {
       "get": {
         "tags": [

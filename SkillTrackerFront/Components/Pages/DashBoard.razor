@@ -43,6 +43,12 @@
             {
                 foreach (var note in notes)
                 {
+                    if (note.IsPinned==true)
+                    {
+                     <i class="fa-solid fa-thumbtack"></i>
+
+                    }
+
                     <div class="note-item @(note.IsSelected ? "selected" : "")"
                          @onclick="() => SelectNote(note)">
 
@@ -153,7 +159,7 @@
                 <div class="note-header">
                     <div class="note-actions">
                         <button class="icon-btn" @onclick="TogglePin" title="Pin/Unpin">
-                            <i class="fa-solid @(isPinned ? "fa-thumbtack" : "fa-thumbtack-slash")"></i>
+                            <i class="fa-solid @(isPinned ? "fa-thumbtack-slash":"fa-thumbtack")"></i>
                         </button>
                         <button @onclick="CopyNoteText" class="icon-btn" title="Copy">
                             <i class="fa-solid fa-copy"></i>

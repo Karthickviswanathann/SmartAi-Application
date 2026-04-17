@@ -106,6 +106,32 @@
   },
   {
     "ContainingType": "Smart_Project_Capacity___Effort_Analyzer.Controllers.MainController",
+    "Method": "UpdateNotesActivity",
+    "RelativePath": "api/Main/UpdateNotesActivity",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Pinned",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Urcheive",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "noteId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Smart_Project_Capacity___Effort_Analyzer.Controllers.MainController",
     "Method": "ForgetPassword",
     "RelativePath": "api/Main/UpdateUser",
     "HttpMethod": "POST",

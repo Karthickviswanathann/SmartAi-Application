@@ -42,13 +42,13 @@ body[b-zzg0y1477c] {
 }
 
 .new-note-btn[b-zzg0y1477c] {
-    width:88% !important;
+    width: 88% !important;
     margin: 16px 20px !important;
     padding: 12px 30px !important;
     background: var(--accent-color);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 14px !important;
     font-weight: 600;
     cursor: pointer;
     display: flex;
@@ -70,7 +70,7 @@ body[b-zzg0y1477c] {
         width: 100%;
         padding: 10px 16px;
         border: 1px solid var(--accent-color);
-        border-radius: 8px;
+        border-radius: 14px !important;
         background: #f8fafc;
         font-size: 0.95rem;
     }
@@ -505,6 +505,42 @@ body[b-zzg0y1477c] {
     color: var(--accent-color);
     border-radius: 10px;
 }
+
+.btn-con-filter[b-zzg0y1477c] {
+    display: flex !important;
+    flex-direction:column !important;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.filter-note-btn[b-zzg0y1477c] {
+    width: 88% !important;
+    margin: 5px 20px !important;
+    padding: 12px 30px !important;
+    background: none;
+    color: var(--accent-color);
+    border: none;
+    border-radius: 14px !important;
+    font-weight: 600;
+    cursor: pointer;
+    /* display: flex; */
+    /* align-items: center; */
+    /* gap: 8px; */
+    font-size: 16px !important;
+    text-align: left;
+}
+
+    .filter-note-btn:hover[b-zzg0y1477c] {
+        background: color-mix(in srgb, var(--bg-color) 60%, #ccc) !important;
+    }
+
+    .filter-note-btn.selected[b-zzg0y1477c] {
+        background: color-mix(in srgb, var(--bg-color) 60%, #ccc) !important;
+    }
+
+    .appearance-body[b-zzg0y1477c] {
+        transition: all 0.3s ease;
+    }
     /*responsive*/
     @media (max-width: 700px) {
 
@@ -531,8 +567,8 @@ body[b-zzg0y1477c] {
             flex: 1;
             display: flex;
             flex-direction: column;
-/*            position: relative;
-*/            padding: 10px;
+            /*            position: relative;
+*/ padding: 10px;
         }
 
         .save-con[b-zzg0y1477c] {

@@ -4,18 +4,22 @@
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
 @using SkillTrackerFront.Components.Layout
+@using SkillTrackerFront.Services
 @using SkillTrackerFront.Services.Interface
 @layout MainLayout
 @inherits LayoutComponentBase
 @inject IJSRuntime JS
 @inject IDataFlow Flow
 @inject AuthenticationStateProvider stateprovider
+@inject LoadingService Loader
+
+<LoaderSpin />
 
 <div class="app-container">
     <button class="menu-toggle" @onclick="ToggleSidebar">
         <i class="fa-solid fa-bars"></i>
     </button>
-    <aside class="sidebar @(isSidebarOpen ? "open" : "")">
+    <div class="sidebar @(isSidebarOpen ? "open" : "")">
         <div class="sidebar-header">
             <div class="logo">
                 <span class="logo-icon">
@@ -31,15 +35,23 @@
             <button class="new-note-btn" @onclick="CreateNewNote">
                 <span class="plus">+</span> New Note
             </button>
-            <button class="new-note-btn" @onclick="GetUrcheiveNotes">
-                <i class="fa-solid fa-arrow-up"></i>
-                Urcheive Notes
-            </button>
-
+  
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Search notes..." @bind="SearchTerm" />
             </div>
+       </div>
+
+        <div class="btn-con-filter">
+            <button class="filter-note-btn" @onclick="GetOpenNotes">
+                <i class="fa-solid fa-inbox"></i>
+                Open Notes
+            </button>
+
+            <button class="filter-note-btn" @onclick="GetUrcheiveNotes">
+                <i class="fa-solid fa-box-archive"></i>
+                Archeive Notes
+            </button>
        </div>
 
         <div class="notes-list">
@@ -110,45 +122,63 @@
  *@
 
         <!-- Settings Section -->
+
         <div class="sidebar-footer">
-            <div class="setting-group" style="display: flex;
-                flex-direction: row;
-                justify-content: space-between;">
-                <label>Theme</label>
-                <span class="theme-toggle" @onclick="ToggleTheme">
-                    <i class="fa-solid @(isDarkMode ? "fa-sun" : "fa-moon")"></i>
-                </span>
-            </div>
-            <div class="setting-group">
-                <label>Accent Color</label>
-                <input type="color" value="@accentColor" @oninput="ChangeAccentColor" />
+            <div class="appearance-header" @onclick="ToggleAppearance"
+                 style="display:flex; justify-content:space-between; cursor:pointer;">
+                <span>Appearance</span>
+                <i class="fa-solid @(isAppearanceOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
             </div>
 
-            <div class="setting-group">
-                <label>Font</label>
-                <select value="@SelectedFont" @onchange="ApplyFont" class="select-Input">
-                    @foreach (var font in AvailableFonts)
-                    {
-                        <option value="@font">@font</option>
-                    }
-                </select>
-            </div>
+            @if (isAppearanceOpen)
+            {
+                <div class="appearance-body">
+                    <div class="setting-group" style="display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;">
+                        <label>Theme</label>
+                        <span class="theme-toggle" @onclick="ToggleTheme">
+                            <i class="fa-solid @(isDarkMode ? "fa-sun" : "fa-moon")"></i>
+                        </span>
+                    </div>
+                    <div class="setting-group">
+                        <label>Accent Color</label>
+                        <input type="color" value="@accentColor" @oninput="ChangeAccentColor" />
+                    </div>
 
-            <div class="setting-group">
-                <label>Size</label>
-                <select value="@SelectedSize" class="select-Input" @onchange="ChangeFontSize">
-                    @foreach (var font in AvailableFontSizes)
-                    {
-                        <option value="@font">@font</option>
-                    }
-                </select>
-            </div>
+                    <div class="setting-group">
+                        <label>Font</label>
+                        <select value="@SelectedFont" @onchange="ApplyFont" class="select-Input">
+                            @foreach (var font in AvailableFonts)
+                            {
+                                <option value="@font">@font</option>
+                            }
+                        </select>
+                    </div>
 
+                    <div class="setting-group">
+                        <label>Size</label>
+                        <select value="@SelectedSize" class="select-Input" @onchange="ChangeFontSize">
+                            @foreach (var font in AvailableFontSizes)
+                            {
+                                <option value="@font">@font</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                
+
+
+            }
+
+        </div>
+        <div style="display:flex;justify-content:space-between">
+            <p style="color:var(--accent-color);padding:10px!important;margin:0px!important">@Username</p>
             <button class="signout-btn" @onclick="SignOut">
-                <i class="fa-solid fa-right-from-bracket"></i>Sign Out
+                <i class="fa-solid fa-right-from-bracket"></i>
             </button>
         </div>
-    </aside>
+    </div>
 
     <!-- Main Content -->
     <div class="main-content">
@@ -172,7 +202,7 @@
                         </button>
 
                         <button @onclick="UrcheiveNotes" class="icon-btn" title="Archieve/Unarcheive">
-                            <i class="fa-solid @(selectedNote?.IsUrcheive==true ? "fa-box-archive" : "fa-arrow-up")"></i>
+                            <i class="fa-solid @(selectedNote?.IsUrcheive==true ? "fa-arrow-up" : "fa-box-archive")"></i>
                         </button>
 
                         <button @onclick="OpenDownloadModel" class="icon-btn" title="download">

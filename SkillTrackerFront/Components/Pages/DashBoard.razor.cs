@@ -29,7 +29,9 @@ namespace SkillTrackerFront.Components.Pages
         private string theme;
         private string token;
         private string countOfWords;
+        private string Username;
         bool showDeleteModal = false;
+        bool isAppearanceOpen = false;
         Note deletedNotes;
 
         List<NotesActivityDto> Lz_GetNotes;
@@ -69,7 +71,10 @@ namespace SkillTrackerFront.Components.Pages
             try
             {
                 notes.Clear();
+                Lz_notes.Clear();
+                Lz_notesData.Clear();
                 token = await JS.InvokeAsync<string>("sessionStorage.getItem", "authToken");
+                Username = await JS.InvokeAsync<string>("sessionStorage.getItem", "Username");
 
                 var res1 = await Flow.GetBehaviour(token);
 
@@ -108,7 +113,7 @@ namespace SkillTrackerFront.Components.Pages
                     Lz_GetNotes = res2.data.ToList();
                     foreach (var note in Lz_GetNotes) {
 
-                        notes.Add(new Note{
+                        Lz_notes.Add(new Note{
                             Id=note.Id,
                             Title=note.Title,
                             NotesText=note.NotesText,
@@ -119,7 +124,7 @@ namespace SkillTrackerFront.Components.Pages
                     }
 
                 }
-                var json1 = JsonConvert.SerializeObject(notes.ToList());
+                var json1 = JsonConvert.SerializeObject(Lz_notes.ToList());
 
                 await JS.InvokeVoidAsync("sessionStorage.setItem", "notes", json1);
 
@@ -128,11 +133,11 @@ namespace SkillTrackerFront.Components.Pages
                 if (!string.IsNullOrEmpty(getJson))
                 {
                     Lz_notesData = JsonConvert.DeserializeObject<List<Note>>(getJson);
-                    Lz_notes = Lz_notesData
+                    notes = Lz_notesData
        .Where(x => x.IsUrcheive == false)   // filter first
        .OrderByDescending(n => n.IsPinned)  // then sort
        .ToList();
-
+                    StateHasChanged();
                 }
 
 
@@ -202,7 +207,11 @@ namespace SkillTrackerFront.Components.Pages
             }
         }
 
-       
+        void ToggleAppearance()
+        {
+            isAppearanceOpen = !isAppearanceOpen;
+        }
+
         private async Task ToggleTheme()
         {
             isDarkMode = !isDarkMode;
@@ -264,9 +273,17 @@ namespace SkillTrackerFront.Components.Pages
                     return;
                 selectedNote.IsUrcheive = !selectedNote.IsUrcheive;
 
+
+
                 if (selectedNote.Id != 0)
                 {
                     var res = await Flow.PostNotesActivity("",Convert.ToString(selectedNote.IsUrcheive),selectedNote.Id, token);
+
+
+                    if (selectedNote.IsUrcheive == true)
+                    {
+                        selectedNote = null;
+                    }
 
                     StateHasChanged();
                     await OnInitializedAsync();
@@ -279,14 +296,35 @@ namespace SkillTrackerFront.Components.Pages
 
         }
 
+        private async Task GetOpenNotes()
+        {
+            try
+            {
+                notes = Lz_notesData
+                .Where(x => x.IsUrcheive == false)
+                .OrderByDescending(n => n.IsPinned)
+                .ToList();
+
+                StateHasChanged();
+
+            }
+            catch (Exception ex)
+            {
+                ShowMsg("Error", ex.Message, 3000);
+            }
+        }
+
         private async Task GetUrcheiveNotes()
         {
             try
             {
-                Lz_notes = Lz_notesData
-                .Where(x => x.IsUrcheive == false)   // filter first
-                .OrderByDescending(n => n.IsPinned)  // then sort
+                notes = Lz_notesData
+                .Where(x => x.IsUrcheive == true)   
+                .OrderByDescending(n => n.IsPinned)  
                 .ToList();
+
+                StateHasChanged();
+
             }
             catch (Exception ex)
             {
@@ -330,6 +368,7 @@ namespace SkillTrackerFront.Components.Pages
 
             else
             {
+                Loader.Show();
                 var selectN = new AddNotesDto
                 {
                     Id=selectedNote.Id,
@@ -343,8 +382,11 @@ namespace SkillTrackerFront.Components.Pages
               
 
                 ShowMsg("Success", "Notes Added Succesfully", 3000);
+                selectedNote = null;
                 StateHasChanged();
                 OnInitializedAsync();
+                Loader.Hide();
+
                 return;
 
             }

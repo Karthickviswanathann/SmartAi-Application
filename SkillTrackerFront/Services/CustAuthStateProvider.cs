@@ -92,6 +92,7 @@ namespace SkillTrackerFront.Services
                 await _Js.InvokeVoidAsync("sessionStorage.removeItem", "authToken");
 
                 await _Js.InvokeVoidAsync("sessionStorage.setItem", "authToken", token);
+                await _Js.InvokeVoidAsync("sessionStorage.setItem", "Username", UsName);
                 //await _protectedSessionStorage.SetItemAsync("Sessiondata", Sesiondata.JWT);
 
 

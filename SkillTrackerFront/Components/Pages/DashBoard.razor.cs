@@ -64,6 +64,8 @@ namespace SkillTrackerFront.Components.Pages
         private List<Note> notes = new List<Note>();
         private List<Note> Lz_notes = new List<Note>();
         private List<Note> Lz_notesData = new List<Note>();
+        private string eleme { get; set; }
+        private string them { get; set; }
 
         public class BehaviourDto
         {
@@ -97,19 +99,16 @@ namespace SkillTrackerFront.Components.Pages
 
 
 
-                    var eleme = await JS.InvokeAsync<string>("sessionStorage.getItem", "Elementcolor");
-                    var them = await JS.InvokeAsync<string>("sessionStorage.getItem", "ThemeColor");
-
-                    if (them=="true")
-                    {
-                        await JS.InvokeVoidAsync("setDarkMode", them);
-
-                    }
-
-                    isDarkMode = Convert.ToBoolean(them);
+                     eleme = await JS.InvokeAsync<string>("sessionStorage.getItem", "Elementcolor");
+                     them = await JS.InvokeAsync<string>("sessionStorage.getItem", "ThemeColor");
 
 
                     await JS.InvokeVoidAsync("applyAccentColor", eleme);
+
+                    isDarkMode = Convert.ToBoolean(them);
+
+                    await JS.InvokeVoidAsync("setDarkMode", isDarkMode);
+
                 }
 
                 
@@ -156,6 +155,8 @@ namespace SkillTrackerFront.Components.Pages
             isPinned = false;
         }
 
+
+    
 
         private async Task ChangeAccentColor(ChangeEventArgs e)
         {
@@ -220,8 +221,11 @@ namespace SkillTrackerFront.Components.Pages
 
         private async Task ToggleTheme()
         {
+            //await Task.Delay(3000);
             isDarkMode = !isDarkMode;
             await JS.InvokeVoidAsync("setDarkMode", isDarkMode);
+
+
             await JS.InvokeVoidAsync("sessionStorage.setItem", "ThemeColor", isDarkMode);
 
             var res = await Flow.PostBehaviour(isDarkMode.ToString(),null, token);
@@ -513,10 +517,12 @@ namespace SkillTrackerFront.Components.Pages
             else if(type=="fontsize")
             {
                 isfontModOpen = !isfontModOpen;
+                isfontfamilyModOpen = false;
             }
             else if (type == "fontfamily")
             {
                 isfontfamilyModOpen = !isfontfamilyModOpen;
+                isfontModOpen = false;
             }
         }
 

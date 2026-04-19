@@ -171,7 +171,7 @@
 
 .top-bar {
     height: 60px;
-    background: white;
+    background: var(--bg-color);
     border-bottom: 1px solid #e2e8f0;
     display: flex;
     align-items: center;
@@ -487,7 +487,7 @@
 }
 
 .icon-btn {
-    background-color: transparent !important;
+    color: var(--text-color) ;
     padding: 5px 10px !important;
     
 }
@@ -550,22 +550,26 @@
 .selected {
     padding: 6px;
     border: 1px solid #ccc;
-
-    background: #fff;
-    display:flex;
-    justify-content:space-between;
+    background: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between !important;
+    border-radius: 10px;
 }
 
 .dropdown-list {
     position: absolute;
     width: 100%;
     border: 1px solid #ccc;
-    background: #fff;
+    background: var(--bg-color);
+    color: var(--text-color);
     z-index: 10;
 }
 
 .dropdown-item {
     padding: 8px;
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
     .dropdown-item:hover {
@@ -584,7 +588,8 @@
 .selected1 {
     padding: 6px;
     border: 1px solid #ccc;
-    background: #fff;
+    background: var(--bg-color);
+    color:var(--text-color);
     display: flex;
     justify-content: space-between !important;
     width: 320px;
@@ -600,10 +605,14 @@
     z-index: 10;
     bottom: 63%;
     overflow-y: scroll;
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
 .dropdown-item1 {
     padding: 8px;
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 
     .dropdown-item1:hover {

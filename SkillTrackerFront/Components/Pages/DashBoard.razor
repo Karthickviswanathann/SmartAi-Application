@@ -43,7 +43,7 @@
        </div>
 
         <div class="btn-con-filter">
-            <button class="filter-note-btn" @onclick="GetOpenNotes">
+            <button class="filter-note-btn active" @onclick="GetOpenNotes">
                 <i class="fa-solid fa-inbox"></i>
                 Open Notes
             </button>
@@ -241,7 +241,7 @@
                         <div class="custom-dropdown">
                         <div class="selected" @onclick='()=>ToggleDropdown("Workspace")'>
                                 @SelectedWorkspace<span>
-                                <i class="fa-solid @(isWPModOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
+                            <i class="fa-solid @(isWPModOpen ? "fa-chevron-down" : "fa-chevron-up")"></i>
                             </span>
                         </div>
 

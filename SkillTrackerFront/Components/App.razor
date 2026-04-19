@@ -35,6 +35,21 @@
         );
         };
     </script>
+
+    <script>
+        (function () {
+        const theme = sessionStorage.getItem("ThemeColor");
+        const accent = sessionStorage.getItem("Elementcolor");
+
+        if (theme === "true") {
+        document.documentElement.classList.add("dark-mode");
+        }
+
+        if (accent) {
+        document.documentElement.style.setProperty("--accent-color", accent);
+        }
+        })();
+    </script>
 </body>
 
 </html>

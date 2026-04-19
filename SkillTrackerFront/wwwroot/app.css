@@ -9,7 +9,7 @@
 /* DARK THEME */
 .dark-mode {
     --bg-color: #0f172a !important;
-    --text-color: #e2e8f0 !important;
+    --text-color: #fff !important;
     --sidebar-bg: #1e293b !important;
     --card-bg: #1e293b !important;
 }

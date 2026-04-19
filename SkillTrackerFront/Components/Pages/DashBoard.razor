@@ -74,11 +74,7 @@
                             <div class="note-title">
                                 @note.Title
                             </div>
-                            <div>
-                                <i class="fa-solid fa-trash delete-icon" style="color:transparent"
-                                   @onclick="@(e => ConfirmDeleteNote(note, e))"></i>
-                            </div>
-
+                        
                         </div>
                         <div class="note-preview">
                             @(note.NotesText != null && note.NotesText.Length > 30
@@ -126,7 +122,18 @@
         <div class="sidebar-footer">
             <div class="appearance-header" @onclick="ToggleAppearance"
                  style="display:flex; justify-content:space-between; cursor:pointer;">
-                <span>Appearance</span>
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" style="color:var(--accent-color)" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" 
+                    stroke-linecap="round" stroke-linejoin="round" 
+                    class="lucide lucide-palette w-3.5 h-3.5" 
+                    aria-hidden="true">
+                    <path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"></path>
+                    <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                    <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                    <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+                    <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                </svg>
+                Appearance</span>
                 <i class="fa-solid @(isAppearanceOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
             </div>
 
@@ -146,24 +153,51 @@
                         <input type="color" value="@accentColor" @oninput="ChangeAccentColor" />
                     </div>
 
-                    <div class="setting-group">
+                    <div class="custom-dropdown1">
                         <label>Font</label>
-                        <select value="@SelectedFont" @onchange="ApplyFont" class="select-Input">
-                            @foreach (var font in AvailableFonts)
-                            {
-                                <option value="@font">@font</option>
-                            }
-                        </select>
+
+                        <div class="selected1" @onclick='() => ToggleDropdown("fontfamily")'>
+                            @SelectedFont<span>
+                            <i class="fa-solid @(isfontfamilyModOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
+                        </span>
                     </div>
 
-                    <div class="setting-group">
-                        <label>Size</label>
-                        <select value="@SelectedSize" class="select-Input" @onchange="ChangeFontSize">
-                            @foreach (var font in AvailableFontSizes)
+                    @if (isfontfamilyModOpen)
+                    {
+                        <div class="dropdown-list1">
+                            @foreach (var item in AvailableFonts)
                             {
-                                <option value="@font">@font</option>
+                                <div class="dropdown-item1"
+                                     @onclick='() => SelectItem(item,"fontfamily")'>
+                                    @item
+                                </div>
                             }
-                        </select>
+                        </div>
+                    }
+                </div>
+
+                    <div class="custom-dropdown1">
+                        <label>Size</label>
+
+                        <div class="selected1" @onclick='() => ToggleDropdown("fontsize")'>
+                            @SelectedSize
+                        <span>
+                            <i class="fa-solid @(isfontModOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
+                        </span>
+                    </div>
+
+                    @if (isfontModOpen)
+                    {
+                        <div class="dropdown-list1">
+                            @foreach (var item in AvailableFontSizes)
+                            {
+                                <div class="dropdown-item1"
+                                     @onclick='() => SelectItem(item, "fontsize")'>
+                                    @item
+                                </div>
+                            }
+                        </div>
+                    }
                     </div>
                 </div>
                 
@@ -184,16 +218,49 @@
     <div class="main-content">
         <header class="top-bar">
             <div class="top-left">
-                <select class="workspace-select" @bind="SelectedWorkspace">
+            @*     <select class="workspace-select" @bind="SelectedWorkspace">
                     <option>General</option>
                     <option>Personal</option>
                     <option>Work</option>
-                </select>
+                </select> *@
+
+
+                
             </div>
+
+
+            
+
+
+
+
 
             <div class="top-right">
                 <div class="note-header">
-                    <div class="note-actions">
+                    <div class="note-actions1">
+                        <div class="custom-dropdown">
+                        <div class="selected" @onclick='()=>ToggleDropdown("Workspace")'>
+                                @SelectedWorkspace<span>
+                                <i class="fa-solid @(isWPModOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
+                            </span>
+                        </div>
+
+                        @if (isWPModOpen)
+                        {
+                            <div class="dropdown-list">
+                                @foreach (var item in LZ_Workspaces)
+                                {
+                                    <div class="dropdown-item"
+                                     @onclick='() => SelectItem(item,"Workspace")'>
+                                        @item
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+
+                   </div>
+                    <div class="note-actions2">
                         <button class="icon-btn" @onclick="TogglePin" title="Pin/Unpin">
                             <i class="fa-solid @(selectedNote?.IsPinned==true ? "fa-thumbtack-slash" : "fa-thumbtack")"></i>
                         </button>
@@ -204,10 +271,14 @@
                         <button @onclick="UrcheiveNotes" class="icon-btn" title="Archieve/Unarcheive">
                             <i class="fa-solid @(selectedNote?.IsUrcheive==true ? "fa-arrow-up" : "fa-box-archive")"></i>
                         </button>
-
+                    <button @onclick="ConfirmDeleteNote" class="icon-btn" title="Archieve/Unarcheive">
+                        <i class="fa-solid fa-trash delete-icon"></i>
+                        </button>
+                
                         <button @onclick="OpenDownloadModel" class="icon-btn" title="download">
                             <i class="fa-solid fa-download"></i>
                         </button>
+
 
 
                     </div>
@@ -216,7 +287,6 @@
                 </div>
 
 
-                <span class="word-count">@countOfWords words</span>
 
             
             </div>
@@ -253,6 +323,12 @@
                 </div>
             }
 
+                            
+            
+            <div style="text-align:right;padding:10px 20px 0px 0px">
+            <span class="word-count">@countOfWords words</span>
+
+            </div>
 
 
     </div>

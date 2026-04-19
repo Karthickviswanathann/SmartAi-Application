@@ -12,7 +12,7 @@ namespace SkillTrackerFront.Components.Pages
     public partial class DashBoard
     {
         private string SearchTerm = "";
-        private string SelectedSize = "";
+        private string SelectedSize = "10px";
         private string FontSize = "";
         private string FontFamily = "";
         private string NoteTitle = "";
@@ -33,8 +33,11 @@ namespace SkillTrackerFront.Components.Pages
         bool showDeleteModal = false;
         bool isAppearanceOpen = false;
         Note deletedNotes;
+        private bool isWPModOpen { get; set; }
+        private bool isfontModOpen { get; set; }
+        private bool isfontfamilyModOpen { get; set; }
 
-        List<NotesActivityDto> Lz_GetNotes;
+        List <NotesActivityDto> Lz_GetNotes;
 
         private System.Timers.Timer? autosaveTimer;
 
@@ -49,7 +52,10 @@ namespace SkillTrackerFront.Components.Pages
                 "Nunito",
                 "Georgia"
             };
-
+        public List<string> LZ_Workspaces = new()
+        {
+            "General","Work","Personal"
+        };
         public List<string> AvailableFontSizes =
         Enumerable.Range(10, 15).Select(i => $"{i}px").ToList();
 
@@ -397,13 +403,13 @@ namespace SkillTrackerFront.Components.Pages
 
 
 
-        public void ConfirmDeleteNote(Note note, MouseEventArgs e)
+        public void ConfirmDeleteNote()
         {
             deletedNotes = null;
             showDeleteModal = true;
 
             if (deletedNotes == null) {
-                deletedNotes = note;
+                deletedNotes = selectedNote;
             }
 
         }
@@ -498,8 +504,46 @@ namespace SkillTrackerFront.Components.Pages
             StateHasChanged();
         }
 
+        private void ToggleDropdown(string type)
+        {
+            if (type == "Workspace")
+            {
+                isWPModOpen = !isWPModOpen;
+            }
+            else if(type=="fontsize")
+            {
+                isfontModOpen = !isfontModOpen;
+            }
+            else if (type == "fontfamily")
+            {
+                isfontfamilyModOpen = !isfontfamilyModOpen;
+            }
+        }
 
-      
+        private void SelectItem(string value,string type)
+        {
+
+            if (type == "Workspace")
+            {
+                SelectedWorkspace = value;
+                isWPModOpen = false;
+                
+            }
+            else if (type == "fontsize")
+            {
+                SelectedSize =value;
+                isfontModOpen = false;
+            }
+            else if (type == "fontfamily")
+            {
+                SelectedFont = value;
+                isfontfamilyModOpen = false;
+            }
+
+        }
+
+
+
 
     }
 }

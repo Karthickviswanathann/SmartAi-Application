@@ -1,11 +1,11 @@
-﻿
-@page "/"
+﻿@page "/"
 
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
 @using SkillTrackerFront.Components.Layout
 @using SkillTrackerFront.Services
 @using SkillTrackerFront.Services.Interface
+
 @layout MainLayout
 @inherits LayoutComponentBase
 @inject IJSRuntime JS
@@ -31,7 +31,7 @@
             </div>
         </div>
 
-       <div class="top-btn-con">
+        <div class="top-btn-con">
             <button class="new-note-btn" @onclick="CreateNewNote">
                 <span class="plus">+</span> New Note
             </button>
@@ -40,7 +40,7 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Search notes..." @bind="SearchTerm" />
             </div>
-       </div>
+        </div>
 
         <div class="btn-con-filter">
             <button class="filter-note-btn active" @onclick="GetOpenNotes">
@@ -52,21 +52,19 @@
                 <i class="fa-solid fa-box-archive"></i>
                 Archeive Notes
             </button>
-       </div>
+        </div>
 
         <div class="notes-list">
             @if (notes.Any())
             {
                 foreach (var note in notes)
                 {
-                  
-
-                    <div class="note-item @(note.IsSelected ? "selected" : "")"
+                    <div class="note-item @(note.IsSelected ? "select" : "")"
                          @onclick="() => SelectNote(note)">
 
-                        @if (note.IsPinned==true)
+                        @if (note.IsPinned == true)
                         {
-                            <i class="fa-solid fa-thumbtack" ></i>
+                            <i class="fa-solid fa-thumbtack"></i>
 
                         }
 
@@ -77,9 +75,7 @@
                         
                         </div>
                         <div class="note-preview">
-                            @(note.NotesText != null && note.NotesText.Length > 30
-                            ? note.NotesText.Substring(0, 30) + "..."
-                            : note.NotesText)
+                            @GetPreviewText(note.NotesText)
                         </div>
                     </div>
                 }
@@ -87,7 +83,7 @@
             
         </div>
 
-     @*    @foreach (var note in notes.OrderByDescending(n => n.IsPinned).ThenBy(n => n.Title))
+        @*    @foreach (var note in notes.OrderByDescending(n => n.IsPinned).ThenBy(n => n.Title))
         {
             <div class="note-item @(note.IsSelected ? "selected" : "")"
                  @onclick="() => SelectNote(note)">
@@ -122,18 +118,20 @@
         <div class="sidebar-footer">
             <div class="appearance-header" @onclick="ToggleAppearance"
                  style="display:flex; justify-content:space-between; cursor:pointer;">
-                <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" style="color:var(--accent-color)" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" 
-                    stroke-linecap="round" stroke-linejoin="round" 
-                    class="lucide lucide-palette w-3.5 h-3.5" 
-                    aria-hidden="true">
-                    <path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"></path>
-                    <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
-                    <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
-                    <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
-                    <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                </svg>
-                Appearance</span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" style="color:var(--accent-color)" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         class="lucide lucide-palette w-3.5 h-3.5"
+                         aria-hidden="true">
+                        <path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"></path>
+                        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                        <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+                        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                    </svg>
+                    Appearance
+                </span>
                 <i class="fa-solid @(isAppearanceOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
             </div>
 
@@ -168,7 +166,7 @@
                             @foreach (var item in AvailableFonts)
                             {
                                 <div class="dropdown-item1"
-                                     @onclick='() => SelectItem(item,"fontfamily")'>
+                                     @onclick='() => SelectItem(item, "fontfamily")'>
                                     @item
                                 </div>
                             }
@@ -176,13 +174,13 @@
                     }
                 </div>
 
-                    <div class="custom-dropdown1">
-                        <label>Size</label>
+                <div class="custom-dropdown1">
+                    <label>Size</label>
 
-                        <div class="selected1" @onclick='() => ToggleDropdown("fontsize")'>
-                            @SelectedSize
+                    <div class="selected1" @onclick='() => ToggleDropdown("fontsize")'>
+                        @SelectedSize
                         <span>
-                            <i class="fa-solid @(isfontModOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
+                            <i class="fa-solid @(isfontModOpen ? "fa-chevron-down" : "fa-chevron-up")"></i>
                         </span>
                     </div>
 
@@ -198,140 +196,173 @@
                             }
                         </div>
                     }
-                    </div>
                 </div>
+            </div>
                 
 
 
-            }
+        }
 
-        </div>
-        <div style="display:flex;justify-content:space-between">
-            <p style="color:var(--accent-color);padding:10px!important;margin:0px!important">@Username</p>
-            <button class="signout-btn" @onclick="SignOut">
-                <i class="fa-solid fa-right-from-bracket"></i>
-            </button>
-        </div>
     </div>
+    <div style="display:flex;justify-content:space-between">
+        <p style="color:var(--accent-color);padding:62px 10px 10px 10px!important;margin:0px!important;font-size:22px">@Username</p>
+        <button class="signout-btn" @onclick="SignOut">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+    </div>
+</div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <header class="top-bar">
-            <div class="top-left">
+<!-- Main Content -->
+<div class="main-content">
+    <header class="top-bar">
+        <div class="top-left">
+            @if (selectedNote != null)
+            {
+                <input class="note-title-input"
+                       placeholder="Untitled Note"
+                       @bind="selectedNote.Title" style="padding-top:25px;font-family:@SelectedFont" />
+            }
+               
             @*     <select class="workspace-select" @bind="SelectedWorkspace">
                     <option>General</option>
                     <option>Personal</option>
                     <option>Work</option>
-                </select> *@
+                </select> *@           
+        </div>
 
+        <div class="top-right">
+            <div class="note-header">
+                <div class="note-actions1">
+                    <div class="custom-dropdown">
+                        <div class="selected" @onclick='() => ToggleDropdown("Workspace")'>
+                            @SelectedWorkspace<span>
+                            <i class="fa-solid @(isWPModOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
+                        </span>
+                    </div>
 
-                
-            </div>
-
-
-            
-
-
-
-
-
-            <div class="top-right">
-                <div class="note-header">
-                    <div class="note-actions1">
-                        <div class="custom-dropdown">
-                        <div class="selected" @onclick='()=>ToggleDropdown("Workspace")'>
-                                @SelectedWorkspace<span>
-                            <i class="fa-solid @(isWPModOpen ? "fa-chevron-down" : "fa-chevron-up")"></i>
-                            </span>
+                    @if (isWPModOpen)
+                    {
+                        <div class="dropdown-list">
+                            @foreach (var item in LZ_Workspaces)
+                            {
+                                <div class="dropdown-item"
+                                     @onclick='() => SelectItem(item, "Workspace")'>
+                                    @item
+                                </div>
+                            }
                         </div>
-
-                        @if (isWPModOpen)
-                        {
-                            <div class="dropdown-list">
-                                @foreach (var item in LZ_Workspaces)
-                                {
-                                    <div class="dropdown-item"
-                                     @onclick='() => SelectItem(item,"Workspace")'>
-                                        @item
-                                    </div>
-                                }
-                            </div>
-                        }
-                    </div>
-
-                   </div>
-                    <div class="note-actions2">
-                        <button class="icon-btn" @onclick="TogglePin" title="Pin/Unpin">
-                            <i class="fa-solid @(selectedNote?.IsPinned==true ? "fa-thumbtack-slash" : "fa-thumbtack")"></i>
-                        </button>
-                        <button @onclick="CopyNoteText" class="icon-btn" title="Copy">
-                            <i class="fa-solid fa-copy"></i>
-                        </button>
-
-                        <button @onclick="UrcheiveNotes" class="icon-btn" title="Archieve/Unarcheive">
-                            <i class="fa-solid @(selectedNote?.IsUrcheive==true ? "fa-arrow-up" : "fa-box-archive")"></i>
-                        </button>
-                    <button @onclick="ConfirmDeleteNote" class="icon-btn" title="Archieve/Unarcheive">
-                        <i class="fa-solid fa-trash delete-icon"></i>
-                        </button>
-                
-                        <button @onclick="OpenDownloadModel" class="icon-btn" title="download">
-                            <i class="fa-solid fa-download"></i>
-                        </button>
-
-
-
-                    </div>
-
-
+                    }
                 </div>
 
+            </div>
+            <div class="note-actions2">
+                <button class="icon-btn" @onclick="TogglePin" title="Pin/Unpin">
+                    <i class="fa-solid @(selectedNote?.IsPinned == true ? "fa-thumbtack-slash" : "fa-thumbtack")"></i>
+                </button>
+                <button @onclick="CopyNoteText" class="icon-btn" title="Copy">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+
+                <button @onclick="UrcheiveNotes" class="icon-btn" title="Archieve/Unarcheive">
+                    <i class="fa-solid @(selectedNote?.IsUrcheive == true ? "fa-arrow-up" : "fa-box-archive")"></i>
+                </button>
+                <button @onclick="ConfirmDeleteNote" class="icon-btn" title="Archieve/Unarcheive">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+                
+                <button @onclick="OpenDownloadModel" class="icon-btn" title="download">
+                    <i class="fa-solid fa-download"></i>
+                </button>
+
+
+
+            </div>
+
+
+        </div>
+
 
 
             
-            </div>
-        </header>
+    </div>
+</header>
 
          
-            @if (selectedNote != null)
-            {
-               <div style="display:flex;justify-content:space-between">
-                <div>
-                    <input class="note-title-input"
-                           placeholder="Untitled Note"
-                           @bind="selectedNote.Title" style="padding-top:25px;font-family:@SelectedFont"                    />
-                </div>
-                <div class="save-con"  style="padding:15px">
-                <button class="save-btn" @onclick="SaveNotes">Save</button>
-                </div>
-               </div>
-                <main class="content-area">
-                    <div class="note-editor">
-                        <textarea class="note-textarea"
-                                  placeholder="Start writing..."
-                              style="font-size:@FontSize;font-family:@SelectedFont"
-                              @bind="selectedNote.NotesText"
-                              @oninput="CountWords"></textarea>
-                    </div>
-                </main>
-            }
-            else
-            {
-                <div class="empty-editor">
-                <svg  xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-12 h-12 mx-auto mb-3 opacity-40"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
-                <h2>Select a note or create a new one</h2>
-                </div>
-            }
+@if (selectedNote != null)
+{
+
+    @if (selectedNote != null)
+    {
+        <input class="mobile-note-title-input"
+               placeholder="Untitled Note"
+               @bind="selectedNote.Title" style="padding-top:25px;font-family:@SelectedFont" />
+    }
+
+    <div style="display:flex;justify-content:space-between">
+      
+        <div class="icon-btn-con" style="padding:12px">
+            <button class="icon-btn" @onclick='() => Format("bold")'>
+                <i class="fa-solid fa-bold"></i>
+            </button>
+
+            <button class="icon-btn" @onclick='() => Format("italic")'>
+                <i class="fa-solid fa-italic"></i>
+            </button>
+
+            <button class="icon-btn" @onclick='() => Format("underline")'>
+                <i class="fa-solid fa-underline"></i>
+            </button>
+
+            <!-- Lists -->
+            <button class="icon-btn" @onclick='() => Format("insertOrderedList")'>
+                <i class="fa-solid fa-list-ol"></i>
+            </button>
+
+            <button class="icon-btn" @onclick='() => Format("insertUnorderedList")'>
+                <i class="fa-solid fa-list-ul"></i>
+            </button>
+
+        </div>
+        <div class="save-con" style="padding:15px">
+            <button class="save-btn" @onclick="SaveNotes">Save</button>
+        </div>
+    </div>
+    <main class="content-area">
+        <div class="note-editor">
+            @* <textarea id="editor" class="note-textarea"
+                      placeholder="Start writing..."
+                      style="font-size:@FontSize;font-family:@SelectedFont"
+                      @bind="selectedNote.NotesText"
+                      @oninput="CountWords"></textarea> *@
+
+            <div id="editor"
+                 contenteditable="true"
+                 class="note-textarea"
+                 style="font-size:@FontSize; font-family:@SelectedFont;padding:15px;outline:none;"
+                 @oninput="CountWords">
+            </div>
+        </div>
+    </main>
+
+    <div class="wordcount-con" style="text-align:right;padding:10px 20px 0px 0px">
+        <span class="word-count">@countOfWords words</span>
+
+    </div>
+}
+else
+{
+    <div class="empty-editor">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-12 h-12 mx-auto mb-3 opacity-40"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+        <h2>Select a note or create a new one</h2>
+    </div>
+}
 
                             
             
-            <div style="text-align:right;padding:10px 20px 0px 0px">
-            <span class="word-count">@countOfWords words</span>
-
-            </div>
 
 
-    </div>
+
+</div>
 </div>
 
 @if (isOpenDownMod)
@@ -352,7 +383,7 @@
             <h3>Delete Note</h3>
             <p>Are you sure you want to delete this note?</p>
 
-           <div class="deleteBtns-Con">
+            <div class="deleteBtns-Con">
                 <button class="btn-cancel" @onclick="() => showDeleteModal = false">
                     Cancel
                 </button>
@@ -360,7 +391,7 @@
                 <button class="btn-delete" @onclick="DeleteNote">
                     Ok
                 </button>
-           </div>
+            </div>
         </div>
     </div>
 }
@@ -368,6 +399,15 @@
 
 @code {
     private bool isSidebarOpen = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && selectedNote != null)
+        {
+            await LoadEditorContent();
+        }
+    }
+
 
     void ToggleSidebar()
     {

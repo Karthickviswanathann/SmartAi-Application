@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
+using Microsoft.SqlServer.Server;
 using Newtonsoft.Json;
 using SkillTrackerFront.Components.DtoModels;
 using SkillTrackerFront.Services;
+using System.Net;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using static System.Net.WebRequestMethods;
 
 namespace SkillTrackerFront.Components.Pages
@@ -121,7 +124,7 @@ namespace SkillTrackerFront.Components.Pages
                         Lz_notes.Add(new Note{
                             Id=note.Id,
                             Title=note.Title,
-                            NotesText=note.NotesText,
+                            NotesText= note.NotesText,
                             IsPinned=note.isPinned,
                             IsUrcheive=note.isUrcheive
                         });
@@ -345,7 +348,7 @@ namespace SkillTrackerFront.Components.Pages
 
         private async Task CopyNoteText()
         {
-            if (selectedNote.NotesText != null)
+            if (selectedNote != null)
             {
                 await JS.InvokeVoidAsync("copyToClipboard", selectedNote.NotesText);
             }
@@ -373,12 +376,20 @@ namespace SkillTrackerFront.Components.Pages
 
         public async Task SaveNotes()
         {
-            if (string.IsNullOrEmpty(selectedNote.NotesText))
+
+            var content = await JS.InvokeAsync<string>("getEditorContent");
+            selectedNote.NotesText = content;
+
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                Loader.Hide();
                 return;
+            }
 
             else
             {
-                Loader.Show();
+               
+
                 var selectN = new AddNotesDto
                 {
                     Id=selectedNote.Id,
@@ -483,11 +494,15 @@ namespace SkillTrackerFront.Components.Pages
            
         }
 
-        private void SelectNote(Note note)
+        private async void SelectNote(Note note)
         {
             notes.ForEach(n => n.IsSelected = false);
             note.IsSelected = true;
             selectedNote = note;
+
+            await Task.Delay(50); 
+            await LoadEditorContent();
+            CountWords();
         }
 
         private void SelectPin(Note note)
@@ -501,9 +516,11 @@ namespace SkillTrackerFront.Components.Pages
         {
             JS.InvokeVoidAsync("barmessage", Type, Msg, duration);
         }
-        private void CountWords(ChangeEventArgs e)
+        private async void CountWords()
         {
-            string text = e.Value?.ToString() ?? "";
+            var content = await JS.InvokeAsync<string>("getEditorContent");
+
+            string text = content ?? "";
             countOfWords = text.Count(char.IsLetter).ToString();
             StateHasChanged();
         }
@@ -548,8 +565,32 @@ namespace SkillTrackerFront.Components.Pages
 
         }
 
+        private async Task Format(string command)
+        {
+            await JS.InvokeVoidAsync("formatText", command);
+        }
 
 
+        async Task LoadEditorContent()
+        {
+            await JS.InvokeVoidAsync("setEditorContent", selectedNote.NotesText ?? "");
+        }
+       
+        string GetPlainText(string html)
+        {
+            return Regex.Replace(html, "<.*?>", "").Trim();
+        }
 
+
+        string GetPreviewText(string html, int length = 30)
+        {
+            var text = GetPlainText(html);
+
+            if (string.IsNullOrEmpty(text)) return "";
+
+            return text.Length > length
+                ? text.Substring(0, length) + "..."
+                : text;
+        }
     }
 }

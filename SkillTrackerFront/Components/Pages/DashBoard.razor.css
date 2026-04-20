@@ -96,7 +96,7 @@
 }
 
     .note-item:hover,
-    .note-item.selected {
+    .note-item.select {
         background: color-mix(in srgb, var(--accent-color) 30%, white);
     }
 
@@ -191,7 +191,7 @@
     }
 
 .content-area {
-    height:75vh;
+    height:90vh !important;
     padding:0px 20px;
     background: var(--bg-color);
     overflow-y: auto;
@@ -199,16 +199,7 @@
 
 
 
-.note-editor {
-    background: white;
-    border-radius: 12px;
-    height: 100%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    padding: 28px;
-    border: 1px solid #ccc;
-}
+
 
 .note-title-input {
     font-size: 20px;
@@ -218,20 +209,22 @@
     margin-bottom: 20px;
     width: 100%;
     background: var(--bg-color);
-    padding-left: 25px;
     color: var(--accent-color)
 }
 
 .note-textarea {
     flex: 1;
-    border: none;
+    border: 1px solid #ccc;
     outline: none;
     resize: none;
     line-height: 1.7;
     background: transparent;
     white-space: pre-wrap;
     font-family: inherit;
-    font-size: inherit;  
+    font-size: inherit;
+    height: 80vh;
+    border-radius: 25px;
+    color: var(--text-color) !important;
 }
 
 .note-preview {
@@ -279,8 +272,9 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 24px;
     color: var(--accent-color);
+    padding-top:60px;
 }
 
     .signout-btn:hover {
@@ -383,22 +377,21 @@
 }*/
 
 .icon-btn {
-    background: transparent;
+    background: var(--bg-color);
     border: none;
     cursor: pointer;
     font-size: 18px;
-    color: #ccc;
+    color: var(--text-color);
+    padding: 5px 10px !important;
 }
-
     .icon-btn:hover {
+        background: color-mix(in srgb, var(--bg-color) 80%, #ccc) !important;
+        padding: 5px 10px !important;
         color: var(--accent-color);
+        border-radius: 10px;
     }
 
-.note-editor {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-}
+
 
 .pin-icon {
     margin-right: 6px;
@@ -486,18 +479,9 @@
     color: white;
 }
 
-.icon-btn {
-    color: var(--text-color) ;
-    padding: 5px 10px !important;
-    
-}
 
-.icon-btn:hover {
-    background: color-mix(in srgb, var(--bg-color) 80%, #ccc) !important;
-    padding: 5px 10px !important;
-    color: var(--accent-color);
-    border-radius: 10px;
-}
+
+
 
 .btn-con-filter {
     display: flex !important;
@@ -545,6 +529,7 @@
     position: relative;
     cursor: pointer;
     border-radius:10px;
+    padding-right:5px;
 }
 
 .selected {
@@ -592,8 +577,8 @@
     color:var(--text-color);
     display: flex;
     justify-content: space-between !important;
-    width: 320px;
-    border-radius: 10px;
+/*    width: 95%;
+*/    border-radius: 10px;
 }
 
 .dropdown-list1 {
@@ -620,198 +605,296 @@
         color: #fff !important;
     }
 
+
+.word-count{
+    color:var(--text-color);
+}
+
+.mobile-note-title-input {
+    display: none;
+}
+
 /*-----------------------------------------responsive---------------------------------------*/
-    @media (max-width: 700px) {
+@media (min-width: 576px) and (max-width: 700px) {
 
-        .login-main-con {
-            width: 100% !important;
-            height: 80vh !important;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .login-main-con {
+        width: 100% !important;
+        height: 80vh !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-        .login-container {
-            background: white;
-            width: 100% !important;
-            height: 70vh !important;
-            padding: 40px 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+    .login-container {
+        background: white;
+        width: 100% !important;
+        height: 70vh !important;
+        padding: 40px 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
 
 
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            /*            position: relative;
+    .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        /*            position: relative;
 */ padding: 10px;
-        }
+    }
 
-        .save-con {
-            position: fixed !important;
-            bottom: 0px !important;
-            right: 28px !important;
-            z-index: 999;
-        }
+    .save-con {
+        position: fixed !important;
+        bottom: 0px !important;
+        right: 28px !important;
+        z-index: 999;
+    }
 
-        .save-btn {
-            padding: 8px 35px !important;
-            border-radius: 17px !important;
-            border: none;
-            outline: none;
-            color: white;
-            background: var(--accent-color);
-            font-size: 14px;
-        }
+    .save-btn {
+        padding: 8px 35px !important;
+        border-radius: 17px !important;
+        border: none;
+        outline: none;
+        color: white;
+        background: var(--accent-color);
+        font-size: 14px;
+    }
 
-        .note-textarea {
-            width: 100%;
-            height: 300px !important; /* better for small screens */
-            font-size: 14px;
-            padding: 12px;
-            border-radius: 8px;
-        }
+    .note-textarea {
+        width: 100%;
+        height: 300px !important; /* better for small screens */
+        font-size: 14px;
+        padding: 12px;
+        border-radius: 8px;
+        color:var(--text-color) !important;
+    }
 
-        .sidebar {
-            display: none; /* hide sidebar on mobile */
-        }
+    .sidebar {
+        display: none; /* hide sidebar on mobile */
+    }
 
-        .note-editor {
-            width: 100%;
-            height: 60vh !important;
-            padding: 10px;
-            font-size: 14px;
-        }
+    .note-editor {
+        width: 100%;
+        height: 90vh !important;
+        font-size: 16px;
+        background: var(--bg-color);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        color: var(--text-color) !important;
+        /* display: flex;
+        flex-direction: column;
+        padding: 28px;*/
+    }
 
-        .workspace-select {
-            padding: 2px 7px !important;
-            border: 1px solid var(--accent-color);
-            border-radius: 6px;
-            background: white;
-            font-size: 0.95rem;
-            outline: var(--accent-color);
-            position: absolute !important;
-            left: 30% !important;
-            bottom: 90% !important;
-            appearance: none !important;
-        }
-        /* Sidebar */
-        .sidebar {
-            position: fixed !important;
-            top: 0 !important;
-            right: -275px !important; /* start hidden off-screen to the right */
-            width: 275px !important;
-            height: 100vh !important;
-            background: var(--bg-color);
-            box-shadow: -2px 0 12px rgba(0, 0, 0, 0.3); /* shadow on left side */
-            z-index: 1500;
-            transition: right 0.3s ease-in-out; /* animate from right */
-            display: block !important;
-            overflow: scroll !important;
-        }
-        /* Menu toggle button */
-        .menu-toggle {
-            position: fixed;
-            top: 18px;
-            left: 5%;
-            z-index: 2000;
-            font-size: 22px;
-            background: var(--accent-color);
-            color: white;
-            padding: 3px 10px;
-            border: none;
-            border-radius: 8px;
-            display: block !important;
-        }
-        /* Example class to open sidebar */
-        .sidebar.open {
-            right: 0 !important; /* slide sidebar fully into view */
-        }
-
-
-
-
-
-        .search-box input {
-            width: 100%;
-            padding: 3px 20px !important;
-            border: 0.5px solid var(--accent-color);
-            border-radius: 10px !important;
-            background: #f8fafc;
-            font-size: 0.8rem !important;
-        }
-
-        .top-btn-con {
-            display: flex !important;
-            padding-top: 10px
-        }
-
-        .search-box {
-            padding: 6px 5px 6px 5px !important;
-            width: 66% !important;
-        }
-
-        .new-note-btn {
-            width: 30% !important;
-            margin: 5px 8px !important;
-            padding: 5px 14px !important;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 14px !important;
-            font-weight: 600;
-            cursor: pointer;
-            /* display: flex; */
-            /* align-items: center; */
-            /* gap: 8px; */
-            font-size: 8px !important;
-        }
-
-        .select-Input {
-            width: 100%;
-            padding: 5px 20px !important;
-            border: 2px solid var(--accent-color);
-            border-radius: 8px;
-            background: #f8fafc;
-            font-size: 0.95rem;
-            outline: var(--accent-color);
-        }
-
-        .signout-btn {
-            padding-top: 25px !important;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .search-box i {
-            position: absolute;
-            right: 8% !important;
-            top: 36% !important;
-            font-size: 12px !important;
-            color: var(--accent-color);
-        }
-
-        .delete-icon {
-            color: var(--accent-color) !important;
-            font-size: 12px;
-        }
+    .workspace-select {
+        padding: 2px 7px !important;
+        border: 1px solid var(--accent-color);
+        border-radius: 6px;
+        background: white;
+        font-size: 0.95rem;
+        outline: var(--accent-color);
+        position: absolute !important;
+        left: 30% !important;
+        bottom: 90% !important;
+        appearance: none !important;
+    }
+    /* Sidebar */
+    .sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        right: -275px !important; /* start hidden off-screen to the right */
+        width: 275px !important;
+        height: 100vh !important;
+        background: var(--bg-color);
+        box-shadow: -2px 0 12px rgba(0, 0, 0, 0.3); /* shadow on left side */
+        z-index: 1500;
+        transition: right 0.3s ease-in-out; /* animate from right */
+        display: block !important;
+        overflow: scroll !important;
+    }
+    /* Menu toggle button */
+    .menu-toggle {
+        position: fixed;
+        top: 2%;
+        left: 5%;
+        z-index: 2000;
+        font-size: 22px;
+        background: var(--accent-color);
+        color: white;
+        padding: 3px 10px;
+        border: none;
+        border-radius: 8px;
+        display: block !important;
+    }
+    /* Example class to open sidebar */
+    .sidebar.open {
+        right: 0 !important; /* slide sidebar fully into view */
     }
 
 
 
-@media (min-width: 700px) and (max-width: 900px) {
+
+
+    .search-box input {
+        width: 100%;
+        padding: 3px 20px !important;
+        border: 0.5px solid var(--accent-color);
+        border-radius: 10px !important;
+        background: #f8fafc;
+        font-size: 0.8rem !important;
+    }
+
+    .top-btn-con {
+        display: flex !important;
+        padding-top: 10px
+    }
+
+    .search-box {
+        padding: 6px 5px 6px 5px !important;
+        width: 66% !important;
+    }
+
+    .new-note-btn {
+        width: 30% !important;
+        margin: 5px 8px !important;
+        padding: 5px 14px !important;
+        background: var(--accent-color);
+        color: white;
+        border: none;
+        border-radius: 14px !important;
+        font-weight: 600;
+        cursor: pointer;
+        /* display: flex; */
+        /* align-items: center; */
+        /* gap: 8px; */
+        font-size: 8px !important;
+    }
+
+    .select-Input {
+        width: 100%;
+        padding: 5px 20px !important;
+        border: 2px solid var(--accent-color);
+        border-radius: 8px;
+        background: #f8fafc;
+        font-size: 0.95rem;
+        outline: var(--accent-color);
+    }
+
+    .signout-btn {
+        padding-top: 61px !important;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-box i {
+        position: absolute;
+        right: 8% !important;
+        top: 36% !important;
+        font-size: 12px !important;
+        color: var(--accent-color);
+    }
+
+    .note-actions2 {
+        display: flex;
+    }
+
+    .icon-btn {
+        background: var(--bg-color) !important;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        color: var(--text-color);
+        padding: 5px 10px !important;
+    }
+
+    .content-area {
+        overflow: hidden !important;
+    }
+
+    .note-textarea {
+        overflow-y: auto !important;
+    }
+
+    .wordcount-con {
+        position: absolute;
+        top: 15%;
+        right: 5%;
+        padding: 0px !important;
+    }
+
+    .mobile-note-title-input {
+        display: block;
+        font-size: 20px;
+        font-weight: bolder;
+        border: none;
+        outline: none;
+        margin-bottom: 20px;
+        width: 100%;
+        background: var(--bg-color);
+        padding-left: 18px;
+        color: var(--accent-color)
+    }
+
+
+    .note-title-input {
+        display: none;
+    }
+    .modal-box{
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 36%;
+    }
+}
+
+
+
+@media (min-width: 700px) and (max-width: 1400px) {
     .sidebar {
-        width: 150px;
+        width: 22% !important;
     }
 
     .menu-toggle {
         display: none !important;
+    }
+
+    .mobile-note-title-input {
+        display: none;
+    }
+
+    .note-title-input {
+        display: block;
+    }
+
+    .note-textarea {
+        width: 100%;
+        height: 75vh !important; /* better for small screens */
+        font-size: 14px;
+        padding: 12px;
+        border-radius: 8px;
+        color: var(--text-color) !important;
+    }
+
+    .sidebar-footer{
+        padding: 16px 20px;
+        border-top: 1px solid #e2e8f0;
+        background: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        position: absolute;
+        bottom: 7%;
+        width:300px;
+    }
+
+    .notes-list {
+        flex: 1;
+        overflow-y: auto;
+        padding: 8px 20px;
     }
 }

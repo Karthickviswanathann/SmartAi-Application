@@ -39,3 +39,39 @@ async function downloadPDF(content) {
     doc.text(content, 10, 10);
     doc.save("note.pdf");
 }
+
+window.setEditorContent = (html) => {
+    document.getElementById("editor").innerHTML = html;
+};
+
+//window.getCleanEditorContent = () => {
+//    const editor = document.getElementById("editor");
+
+//    let clone = editor.cloneNode(true);
+
+//    clone.querySelectorAll("*").forEach(el => {
+//        if (!el.textContent.trim() && el.children.length === 0) {
+//            el.remove();
+//        }
+//    });
+
+//    clone.querySelectorAll("b b, i i, u u").forEach(el => {
+//        el.replaceWith(...el.childNodes);
+//    });
+
+//    return clone.innerHTML.trim();    
+//};
+
+window.getEditorContent = () => {
+    return document.getElementById("editor").innerHTML;
+};
+window.formatText = (command) => {
+    document.getElementById("editor").focus();
+    document.execCommand(command, false, null);
+};
+
+window.getPlainText = (html) => {
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+    return temp.innerText.trim();
+};

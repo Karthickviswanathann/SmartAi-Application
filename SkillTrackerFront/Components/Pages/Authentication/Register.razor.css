@@ -274,3 +274,33 @@
 }
 
 
+@media(min-width:992px){
+
+    .register-main-con{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto;
+    }
+
+    .register-container{
+        width: 100%;
+        max-width: 400px;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .form-group input {
+        width: 100%;
+        outline: none;
+        border: 1px solid #ccc;
+        padding: 10px 60px !important;
+        border-radius: 15px;
+        font-size: 20px;
+    }
+}

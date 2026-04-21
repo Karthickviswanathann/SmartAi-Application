@@ -85,8 +85,9 @@ namespace SkillTrackerFront.Components.Pages
                 Lz_notes.Clear();
                 Lz_notesData.Clear();
                 token = await JS.InvokeAsync<string>("sessionStorage.getItem", "authToken");
-                Username = await JS.InvokeAsync<string>("sessionStorage.getItem", "Username");
+                var state = (CustAuthStateProvider)stateprovider;
 
+                Username = state.GetUserName(token);
                 var res1 = await Flow.GetBehaviour(token);
 
                 if(res1.Data != null)

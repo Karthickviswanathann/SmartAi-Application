@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.Http;
 using Microsoft.JSInterop;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text.Json;
@@ -125,7 +126,17 @@ namespace SkillTrackerFront.Services
             return token.Claims;
         }
 
-
+        public string GetUserName(string token)
+        {
+            DataAcces dataAcces = new DataAcces();
+            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+            JwtSecurityToken jwt = tokenHandler.ReadJwtToken(token);
+            string EncrptedClaim = jwt.Claims.FirstOrDefault(c => c.Type == "encrptedClaims")?.Value;
+            var decryptedclaim = dataAcces.Decrypturls(EncrptedClaim);
+            var decrptjson = JsonConvert.DeserializeObject<Dictionary<string, string>>(decryptedclaim);
+            string UsName = decrptjson["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
+            return UsName;
+        }
         public async void showmessage(string type, string message,int duration)
         {
             await _Js.InvokeVoidAsync("barmessage", type, message, duration);

@@ -75,3 +75,4 @@ window.getPlainText = (html) => {
     temp.innerHTML = html;
     return temp.innerText.trim();
 };
+

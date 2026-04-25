@@ -400,13 +400,7 @@ else
 @code {
     private bool isSidebarOpen = false;
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender && selectedNote != null)
-        {
-            await LoadEditorContent();
-        }
-    }
+ 
 
 
     void ToggleSidebar()

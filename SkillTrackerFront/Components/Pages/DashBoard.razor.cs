@@ -76,7 +76,7 @@ namespace SkillTrackerFront.Components.Pages
             public string? ElementColor { get; set; }
         }
 
-   
+
         protected async override Task OnInitializedAsync()
         {
             try
@@ -90,7 +90,7 @@ namespace SkillTrackerFront.Components.Pages
                 Username = state.GetUserName(token);
                 var res1 = await Flow.GetBehaviour(token);
 
-                if(res1.Data != null)
+                if (res1.Data != null)
                 {
                     var json = JsonConvert.DeserializeObject<BehaviourDto>(res1.Data.ToString());
 
@@ -103,8 +103,8 @@ namespace SkillTrackerFront.Components.Pages
 
 
 
-                     eleme = await JS.InvokeAsync<string>("sessionStorage.getItem", "Elementcolor");
-                     them = await JS.InvokeAsync<string>("sessionStorage.getItem", "ThemeColor");
+                    eleme = await JS.InvokeAsync<string>("sessionStorage.getItem", "Elementcolor");
+                    them = await JS.InvokeAsync<string>("sessionStorage.getItem", "ThemeColor");
 
 
                     await JS.InvokeVoidAsync("applyAccentColor", eleme);
@@ -115,40 +115,34 @@ namespace SkillTrackerFront.Components.Pages
 
                 }
 
-                
+
                 var res2 = await Flow.GetNotes(token);
                 if (res2.data != null)
                 {
                     Lz_GetNotes = res2.data.ToList();
-                    foreach (var note in Lz_GetNotes) {
+                    foreach (var note in Lz_GetNotes)
+                    {
 
-                        Lz_notes.Add(new Note{
-                            Id=note.Id,
-                            Title=note.Title,
-                            NotesText= note.NotesText,
-                            IsPinned=note.isPinned,
-                            IsUrcheive=note.isUrcheive
+                        Lz_notesData.Add(new Note
+                        {
+                            Id = note.Id,
+                            Title = note.Title,
+                            NotesText = note.NotesText,
+                            IsPinned = note.isPinned,
+                            IsUrcheive = note.isUrcheive
                         });
-                    
+
                     }
 
                 }
-                var json1 = JsonConvert.SerializeObject(Lz_notes.ToList());
 
-                await JS.InvokeVoidAsync("sessionStorage.setItem", "notes", json1);
+                notes = Lz_notesData
+               .Where(x => x.IsUrcheive == false)
+               .OrderByDescending(n => n.IsPinned)
+               .ToList();
 
-                var getJson=await JS.InvokeAsync<string>("sessionStorage.getItem", "notes");
 
-                if (!string.IsNullOrEmpty(getJson))
-                {
-                    Lz_notesData = JsonConvert.DeserializeObject<List<Note>>(getJson);
-                    notes = Lz_notesData
-       .Where(x => x.IsUrcheive == false)   // filter first
-       .OrderByDescending(n => n.IsPinned)  // then sort
-       .ToList();
-                    StateHasChanged();
-                }
-
+                StateHasChanged();
 
             }
             catch (Exception ex)
@@ -159,9 +153,8 @@ namespace SkillTrackerFront.Components.Pages
             isPinned = false;
         }
 
-
-    
-
+       
+      
         private async Task ChangeAccentColor(ChangeEventArgs e)
         {
             accentColor = e.Value.ToString();
@@ -520,7 +513,6 @@ namespace SkillTrackerFront.Components.Pages
         private async void CountWords()
         {
             var content = await JS.InvokeAsync<string>("getEditorContent");
-
             string text = content ?? "";
             countOfWords = text.Count(char.IsLetter).ToString();
             StateHasChanged();

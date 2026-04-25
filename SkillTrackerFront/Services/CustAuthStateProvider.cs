@@ -14,6 +14,7 @@ namespace SkillTrackerFront.Services
     {
         private readonly IJSRuntime _Js;
         private readonly NavigationManager _Navigation;
+        public string token { get; set; }
 
 
         public CustAuthStateProvider(IJSRuntime Js, NavigationManager Navigation)
@@ -28,7 +29,7 @@ namespace SkillTrackerFront.Services
         {
             try
             {
-                var token = await _Js.InvokeAsync<string>("sessionStorage.getItem", "authToken");
+                token = await _Js.InvokeAsync<string>("sessionStorage.getItem", "authToken");
 
                 //var token = await _protectedSessionStorage.GetItemAsync<string>("Sessiondata");
                 ClaimsIdentity identity = new ClaimsIdentity();

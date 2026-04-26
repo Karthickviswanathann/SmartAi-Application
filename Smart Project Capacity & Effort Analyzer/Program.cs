@@ -17,6 +17,11 @@ builder.Services.AddScoped<IDataFlow, DataFlow>();
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.RegisterServiceDefaultDependencies(builder.Configuration);
 builder.Services.AddScoped<IDataFlow,DataFlow>();
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:5379";
+    options.InstanceName = "MyApp_Redis";
+});
 var app = builder.Build();
 
 

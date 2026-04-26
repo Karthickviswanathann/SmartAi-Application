@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
@@ -19,10 +20,13 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
     {
         private readonly AppDbContext _dbContext;
         private readonly IConfiguration _config;
-        public DataFlow(AppDbContext dbContext, IConfiguration config)
+        private readonly IDistributedCache _cache;
+
+        public DataFlow(AppDbContext dbContext, IConfiguration config, IDistributedCache cache)
         {
             _dbContext=dbContext;
             _config = config;
+            _cache = cache;
         }
 
         public async Task<RespModel> Login(LoginDto login)
@@ -129,24 +133,72 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
         }
 
 
+        //public async Task<RespModel> GetNotes(HttpContext context)
+        //{
+
+        //    RespModel respo = new RespModel();
+
+        //    var cacheKey = "Notes";
+
+        //    var cachedData = await _cache.GetStringAsync(cacheKey);
+
+
+        //    var token = decryptedToken(context);
+
+        //    var existUserDetail = _dbContext.NotesMasters.Where(x => x.UserId == Convert.ToInt16(token[0]));
+        //    var data = existUserDetail.OrderByDescending(x => x.CreatedDate).ToList();
+
+        //    respo.respCode = "200";
+        //    respo.respDesc = "Get User Behaviour Successfully";
+        //    respo.respType = "Success";
+        //    respo.Data = data;
+        //    return respo;
+
+
+        //}
+
+
         public async Task<RespModel> GetNotes(HttpContext context)
         {
-
             RespModel respo = new RespModel();
 
-
             var token = decryptedToken(context);
+            var userId = Convert.ToInt16(token[0]);
 
-            var existUserDetail = _dbContext.NotesMasters.Where(x => x.UserId == Convert.ToInt16(token[0]));
-            var data = existUserDetail.OrderByDescending(x => x.CreatedDate).ToList();
+            var cacheKey = $"Notes_{userId}";
+
+            var cachedData = await _cache.GetStringAsync(cacheKey);
+
+            if (cachedData != null)
+            {
+                var data = JsonConvert.DeserializeObject<List<NotesMaster>>(cachedData);
+
+                respo.respCode = "200";
+                respo.respDesc = "From Cache";
+                respo.respType = "Success";
+                respo.Data = data;
+                return respo; 
+            }
+
+            var dataDb = await _dbContext.NotesMasters
+                .Where(x => x.UserId == userId)
+                .OrderByDescending(x => x.CreatedDate)
+                .ToListAsync();
+
+            // Save to Redis
+            await _cache.SetStringAsync(cacheKey,
+                JsonConvert.SerializeObject(dataDb),
+                new DistributedCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+                });
 
             respo.respCode = "200";
-            respo.respDesc = "Get User Behaviour Successfully";
+            respo.respDesc = "From Database";
             respo.respType = "Success";
-            respo.Data = data;
+            respo.Data = dataDb;
+
             return respo;
-
-
         }
 
         public async Task<RespModel> PostColor(string? themeColor, string? ElementColor,HttpContext context)
@@ -227,8 +279,11 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
 
 
             var token = decryptedToken(context);
+            var userId = Convert.ToInt16(token[0]);
 
-            var existUserDetail = _dbContext.NotesMasters.Where(x => x.UserId == Convert.ToInt16(token[0]) && x.Id==notes.Id).FirstOrDefault();
+            var cacheKey = $"Notes_{userId}";
+
+            var existUserDetail = _dbContext.NotesMasters.Where(x => x.UserId == userId && x.Id==notes.Id).FirstOrDefault();
 
 
             if (existUserDetail == null)
@@ -258,6 +313,7 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
             existUserDetail.UpdatedDate = DateTime.Now;
 
            await _dbContext.SaveChangesAsync();
+            await _cache.RemoveAsync(cacheKey);
 
             respo.respCode = "200";
             respo.respDesc = "User  Behaviour Updated Successfully";
@@ -275,10 +331,14 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
 
 
             var token = decryptedToken(context);
+            var userId = Convert.ToInt16(token[0]);
 
-            var existUserDetail = _dbContext.NotesMasters.Where(x => x.UserId == Convert.ToInt16(token[0]) && x.Id == Id).FirstOrDefault();
+            var cacheKey = $"Notes_{userId}";
+
+            var existUserDetail = _dbContext.NotesMasters.Where(x => x.UserId == userId && x.Id == Id).FirstOrDefault();
             _dbContext.NotesMasters.Remove(existUserDetail);
             await _dbContext.SaveChangesAsync();
+            await _cache.RemoveAsync(cacheKey);
 
             respo.respCode = "200";
             respo.respDesc = "User  Behaviour Deleted Successfully";

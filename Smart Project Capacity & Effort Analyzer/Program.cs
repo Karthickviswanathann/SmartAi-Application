@@ -19,7 +19,7 @@ builder.Services.RegisterServiceDefaultDependencies(builder.Configuration);
 builder.Services.AddScoped<IDataFlow,DataFlow>();
 builder.Services.AddStackExchangeRedisCache(options =>
 {
-    options.Configuration = "localhost:5379";
+    options.Configuration = "localhost:6379";
     options.InstanceName = "MyApp_Redis";
 });
 var app = builder.Build();

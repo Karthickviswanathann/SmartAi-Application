@@ -151,12 +151,14 @@
                         <input type="color" value="@accentColor" @oninput="ChangeAccentColor" />
                     </div>
 
-                    <div class="custom-dropdown1">
+                    @if (selectedNote != null){
+                           <div class="custom-dropdown1">
                         <label>Font</label>
 
                         <div class="selected1" @onclick='() => ToggleDropdown("fontfamily")'>
                             @SelectedFont<span>
-                            <i class="fa-solid @(isfontfamilyModOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
+                                <i class="fa-solid @(isfontfamilyModOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
+
                         </span>
                     </div>
 
@@ -179,8 +181,8 @@
 
                     <div class="selected1" @onclick='() => ToggleDropdown("fontsize")'>
                         @SelectedSize
-                        <span>
-                            <i class="fa-solid @(isfontModOpen ? "fa-chevron-down" : "fa-chevron-up")"></i>
+                        <span> 
+                            <i class="fa-solid @(isfontModOpen==true ? "fa-chevron-up": "fa-chevron-down")"></i>
                         </span>
                     </div>
 
@@ -197,6 +199,9 @@
                         </div>
                     }
                 </div>
+                    }
+
+                 
             </div>
                 
 
@@ -204,8 +209,8 @@
         }
 
     </div>
-    <div style="display:flex;justify-content:space-between">
-        <p style="color:var(--accent-color);padding:62px 10px 10px 10px!important;margin:0px!important;font-size:22px">@Username</p>
+    <div style="display:flex;justify-content:space-between;padding:10px">
+        <p style="color:var(--accent-color);padding:62px 10px 10px 10px!important;margin-top:-55px!important;font-size:22px">@Username</p>
         <button class="signout-btn" @onclick="SignOut">
             <i class="fa-solid fa-right-from-bracket"></i>
         </button>
@@ -231,57 +236,65 @@
         </div>
 
         <div class="top-right">
-            <div class="note-header">
-                <div class="note-actions1">
-                    <div class="custom-dropdown">
-                        <div class="selected" @onclick='() => ToggleDropdown("Workspace")'>
-                            @SelectedWorkspace<span>
-                            <i class="fa-solid @(isWPModOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
-                        </span>
+                @if (selectedNote != null)
+                {
+                    <div class="note-header">
+                        <div class="note-actions1">
+
+
+                            <div class="custom-dropdown">
+                                <div class="selected" @onclick='() => ToggleDropdown("Workspace")'>
+                                    @SelectedWorkspace<span>
+                                        <i class="fa-solid @(isWPModOpen ? "fa-chevron-up" : "fa-chevron-down")"></i>
+                                    </span>
+                                </div>
+
+                                @if (isWPModOpen)
+                                {
+                                    <div class="dropdown-list">
+                                        @foreach (var item in LZ_Workspaces)
+                                        {
+                                            <div class="dropdown-item"
+                                            @onclick='() => SelectItem(item, "Workspace")'>
+                                                @item
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                            </div>
+
+
+
+
+
+                        </div>
+                        <div class="note-actions2">
+                            <button class="icon-btn" @onclick="TogglePin" title="Pin/Unpin">
+                                <i class="fa-solid @(selectedNote?.IsPinned == true ? "fa-thumbtack-slash" : "fa-thumbtack")"></i>
+                            </button>
+                            <button @onclick="CopyNoteText" class="icon-btn" title="Copy">
+                                <i class="fa-solid fa-copy"></i>
+                            </button>
+
+                            <button @onclick="UrcheiveNotes" class="icon-btn" title="Archieve/Unarcheive">
+                                <i class="fa-solid @(selectedNote?.IsUrcheive == true ? "fa-arrow-up" : "fa-box-archive")"></i>
+                            </button>
+                            <button @onclick="ConfirmDeleteNote" class="icon-btn" title="Delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                            <button @onclick="OpenDownloadModel" class="icon-btn" title="download">
+                                <i class="fa-solid fa-download"></i>
+                            </button>
+
+
+
+                        </div>
+
+
                     </div>
 
-                    @if (isWPModOpen)
-                    {
-                        <div class="dropdown-list">
-                            @foreach (var item in LZ_Workspaces)
-                            {
-                                <div class="dropdown-item"
-                                     @onclick='() => SelectItem(item, "Workspace")'>
-                                    @item
-                                </div>
-                            }
-                        </div>
-                    }
-                </div>
-
-            </div>
-            <div class="note-actions2">
-                <button class="icon-btn" @onclick="TogglePin" title="Pin/Unpin">
-                    <i class="fa-solid @(selectedNote?.IsPinned == true ? "fa-thumbtack-slash" : "fa-thumbtack")"></i>
-                </button>
-                <button @onclick="CopyNoteText" class="icon-btn" title="Copy">
-                    <i class="fa-solid fa-copy"></i>
-                </button>
-
-                <button @onclick="UrcheiveNotes" class="icon-btn" title="Archieve/Unarcheive">
-                    <i class="fa-solid @(selectedNote?.IsUrcheive == true ? "fa-arrow-up" : "fa-box-archive")"></i>
-                </button>
-                <button @onclick="ConfirmDeleteNote" class="icon-btn" title="Delete">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-                
-                <button @onclick="OpenDownloadModel" class="icon-btn" title="download">
-                    <i class="fa-solid fa-download"></i>
-                </button>
-
-
-
-            </div>
-
-
-        </div>
-
-
+                }
 
             
     </div>

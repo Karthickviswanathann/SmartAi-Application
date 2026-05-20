@@ -20,13 +20,11 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
     {
         private readonly AppDbContext _dbContext;
         private readonly IConfiguration _config;
-        private readonly IDistributedCache _cache;
 
-        public DataFlow(AppDbContext dbContext, IConfiguration config, IDistributedCache cache)
+        public DataFlow(AppDbContext dbContext, IConfiguration config)
         {
             _dbContext=dbContext;
             _config = config;
-            _cache = cache;
         }
 
         public async Task<RespModel> Login(LoginDto login)
@@ -35,7 +33,7 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
 
             var hashPassword = ConvertMd5(login.Password);
 
-            var key = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
+            // var key = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
 
             var validuser = _dbContext.Usermaster.Where(x => x.Name == login.Username && x.PasswordHash == hashPassword).FirstOrDefault();
 
@@ -140,7 +138,6 @@ namespace Smart_Project_Capacity___Effort_Analyzer.Services
 
             var cacheKey = "Notes";
 
-            var cachedData = await _cache.GetStringAsync(cacheKey);
 
 
             var token = decryptedToken(context);

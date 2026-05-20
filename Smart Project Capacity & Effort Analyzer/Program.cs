@@ -13,15 +13,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IDataFlow, DataFlow>();
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.RegisterServiceDefaultDependencies(builder.Configuration);
 builder.Services.AddScoped<IDataFlow,DataFlow>();
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    options.Configuration = "localhost:6379";
-    options.InstanceName = "MyApp_Redis";
-});
+
 var app = builder.Build();
 
 
